@@ -1,1 +1,10 @@
 f:\Visual Studio 2013\Projects\ISFinalProject\ISFinalProject\bin\Debug\ISFinalProject.exe.config
+F:\jinseisan\isdevelopment-homework\Final Project\ISFinalProject\bin\Debug\ISFinalProject.exe.config
+F:\jinseisan\isdevelopment-homework\Final Project\ISFinalProject\bin\Debug\ISFinalProject.exe
+F:\jinseisan\isdevelopment-homework\Final Project\ISFinalProject\bin\Debug\ISFinalProject.pdb
+F:\jinseisan\isdevelopment-homework\Final Project\ISFinalProject\obj\Debug\ISFinalProject.csprojResolveAssemblyReference.cache
+F:\jinseisan\isdevelopment-homework\Final Project\ISFinalProject\obj\Debug\ISFinalProject.Properties.Resources.resources
+F:\jinseisan\isdevelopment-homework\Final Project\ISFinalProject\obj\Debug\ISFinalProject.csproj.GenerateResource.Cache
+F:\jinseisan\isdevelopment-homework\Final Project\ISFinalProject\obj\Debug\ISFinalProject.exe
+F:\jinseisan\isdevelopment-homework\Final Project\ISFinalProject\obj\Debug\ISFinalProject.pdb
+F:\jinseisan\isdevelopment-homework\Final Project\ISFinalProject\obj\Debug\ISFinalProject.Main.resources
