@@ -8,3 +8,4 @@ F:\jinseisan\isdevelopment-homework\Final Project\ISFinalProject\obj\Debug\ISFin
 F:\jinseisan\isdevelopment-homework\Final Project\ISFinalProject\obj\Debug\ISFinalProject.exe
 F:\jinseisan\isdevelopment-homework\Final Project\ISFinalProject\obj\Debug\ISFinalProject.pdb
 F:\jinseisan\isdevelopment-homework\Final Project\ISFinalProject\obj\Debug\ISFinalProject.Main.resources
+F:\jinseisan\isdevelopment-homework\Final Project\ISFinalProject\obj\Debug\ISFinalProject.ReferenceForm.resources

@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 
 namespace ISFinalProject
 {
@@ -53,7 +54,53 @@ namespace ISFinalProject
 
         private void button2_Click(object sender, EventArgs e)
         {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Filter = "文本文件|*.txt|所有文件|*.*";
+            openFileDialog.RestoreDirectory = true;
+            openFileDialog.FilterIndex = 1;
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                StreamReader sr = new StreamReader(openFileDialog.FileName, Encoding.Default);
+                inputTextBox.Text = sr.ReadToEnd();
+                sr.Close();
+            }
 
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            if (this.inputTextBox.Text.ToString().Trim() == "")
+            {
+                MessageBox.Show("您未输入任何内容！", "警告");
+                return;
+            }
+            SaveFileDialog MySaveFileDialog = new SaveFileDialog();
+            MySaveFileDialog.Filter = "文本文档(*.txt)|*.txt";
+            MySaveFileDialog.CreatePrompt = true;
+            MySaveFileDialog.OverwritePrompt = true;
+            MySaveFileDialog.RestoreDirectory = true;
+            if (MySaveFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                StreamWriter sw = new StreamWriter(MySaveFileDialog.FileName, false);
+                sw.WriteLine(this.inputTextBox.Text);
+                sw.Close();
+                this.operStatusLabel.Text = "保存成功";
+            }
+        }
+
+        private void toolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+            this.tabControl1.SelectedTab = this.tabPage1;
+        }
+
+        private void toolStripMenuItem3_Click(object sender, EventArgs e)
+        {
+            this.tabControl1.SelectedTab = this.tabPage2;
+        }
+
+        private void 退出ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
