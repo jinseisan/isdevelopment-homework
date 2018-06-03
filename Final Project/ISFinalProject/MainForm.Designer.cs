@@ -38,6 +38,8 @@
             this.帮助ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.operStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
+            this.timeStatusLable = new System.Windows.Forms.ToolStripStatusLabel();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.label2 = new System.Windows.Forms.Label();
@@ -47,9 +49,8 @@
             this.inputTextBox = new System.Windows.Forms.TextBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.operStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
-            this.timeStatusLable = new System.Windows.Forms.ToolStripStatusLabel();
             this.dateTimer = new System.Windows.Forms.Timer(this.components);
+            this.toolStripProgressBar1 = new System.Windows.Forms.ToolStripProgressBar();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -120,12 +121,27 @@
             // 
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.operStatusLabel,
+            this.toolStripProgressBar1,
             this.timeStatusLable});
             this.statusStrip1.Location = new System.Drawing.Point(0, 545);
             this.statusStrip1.Name = "statusStrip1";
             this.statusStrip1.Size = new System.Drawing.Size(695, 22);
             this.statusStrip1.TabIndex = 2;
             this.statusStrip1.Text = "statusStrip1";
+            // 
+            // operStatusLabel
+            // 
+            this.operStatusLabel.Name = "operStatusLabel";
+            this.operStatusLabel.Size = new System.Drawing.Size(223, 17);
+            this.operStatusLabel.Spring = true;
+            this.operStatusLabel.Text = "tabPageStatus";
+            // 
+            // timeStatusLable
+            // 
+            this.timeStatusLable.Name = "timeStatusLable";
+            this.timeStatusLable.Size = new System.Drawing.Size(223, 17);
+            this.timeStatusLable.Spring = true;
+            this.timeStatusLable.Text = "timeStatus";
             // 
             // tabControl1
             // 
@@ -229,24 +245,15 @@
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "tabPage3";
             // 
-            // operStatusLabel
-            // 
-            this.operStatusLabel.Name = "operStatusLabel";
-            this.operStatusLabel.Size = new System.Drawing.Size(324, 17);
-            this.operStatusLabel.Spring = true;
-            this.operStatusLabel.Text = "tabPageStatus";
-            // 
-            // timeStatusLable
-            // 
-            this.timeStatusLable.Name = "timeStatusLable";
-            this.timeStatusLable.Size = new System.Drawing.Size(324, 17);
-            this.timeStatusLable.Spring = true;
-            this.timeStatusLable.Text = "timeStatus";
-            // 
             // dateTimer
             // 
             this.dateTimer.Interval = 1000;
             this.dateTimer.Tick += new System.EventHandler(this.dateTimer_Tick);
+            // 
+            // toolStripProgressBar1
+            // 
+            this.toolStripProgressBar1.Name = "toolStripProgressBar1";
+            this.toolStripProgressBar1.Size = new System.Drawing.Size(200, 16);
             // 
             // Main
             // 
@@ -296,6 +303,7 @@
         private System.Windows.Forms.ToolStripStatusLabel operStatusLabel;
         private System.Windows.Forms.ToolStripStatusLabel timeStatusLable;
         private System.Windows.Forms.Timer dateTimer;
+        private System.Windows.Forms.ToolStripProgressBar toolStripProgressBar1;
     }
 }
 
