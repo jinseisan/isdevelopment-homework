@@ -50,5 +50,10 @@ namespace ISFinalProject
         {
             this.operStatusLabel.Text = tabControl1.TabPages[tabControl1.SelectedIndex].Text;
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
