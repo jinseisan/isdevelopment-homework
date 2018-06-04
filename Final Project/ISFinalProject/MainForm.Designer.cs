@@ -45,8 +45,9 @@
             this.timeStatusLable = new System.Windows.Forms.ToolStripStatusLabel();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.inputTextBox = new System.Windows.Forms.TextBox();
+            this.inputSaveButton = new System.Windows.Forms.Button();
+            this.inputOpenButton = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.outputTextBox = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
@@ -59,7 +60,9 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.dateTimer = new System.Windows.Forms.Timer(this.components);
-            this.inputTextBox = new System.Windows.Forms.TextBox();
+            this.clearButton = new System.Windows.Forms.Button();
+            this.outputCopyButton = new System.Windows.Forms.Button();
+            this.outputSaveButton = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -93,21 +96,21 @@
             // toolStripMenuItem2
             // 
             this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(152, 22);
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(136, 22);
             this.toolStripMenuItem2.Text = "文本关键词";
             this.toolStripMenuItem2.Click += new System.EventHandler(this.toolStripMenuItem2_Click);
             // 
             // toolStripMenuItem3
             // 
             this.toolStripMenuItem3.Name = "toolStripMenuItem3";
-            this.toolStripMenuItem3.Size = new System.Drawing.Size(152, 22);
+            this.toolStripMenuItem3.Size = new System.Drawing.Size(136, 22);
             this.toolStripMenuItem3.Text = "文献信息";
             this.toolStripMenuItem3.Click += new System.EventHandler(this.toolStripMenuItem3_Click);
             // 
             // 退出ToolStripMenuItem
             // 
             this.退出ToolStripMenuItem.Name = "退出ToolStripMenuItem";
-            this.退出ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.退出ToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
             this.退出ToolStripMenuItem.Text = "退出";
             this.退出ToolStripMenuItem.Click += new System.EventHandler(this.退出ToolStripMenuItem_Click);
             // 
@@ -124,19 +127,19 @@
             // 复制ToolStripMenuItem
             // 
             this.复制ToolStripMenuItem.Name = "复制ToolStripMenuItem";
-            this.复制ToolStripMenuItem.Size = new System.Drawing.Size(100, 22);
+            this.复制ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.复制ToolStripMenuItem.Text = "复制";
             // 
             // 粘贴ToolStripMenuItem
             // 
             this.粘贴ToolStripMenuItem.Name = "粘贴ToolStripMenuItem";
-            this.粘贴ToolStripMenuItem.Size = new System.Drawing.Size(100, 22);
+            this.粘贴ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.粘贴ToolStripMenuItem.Text = "粘贴";
             // 
             // 剪切ToolStripMenuItem
             // 
             this.剪切ToolStripMenuItem.Name = "剪切ToolStripMenuItem";
-            this.剪切ToolStripMenuItem.Size = new System.Drawing.Size(100, 22);
+            this.剪切ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.剪切ToolStripMenuItem.Text = "剪切";
             // 
             // 帮助ToolStripMenuItem
@@ -160,7 +163,7 @@
             // operStatusLabel
             // 
             this.operStatusLabel.Name = "operStatusLabel";
-            this.operStatusLabel.Size = new System.Drawing.Size(245, 17);
+            this.operStatusLabel.Size = new System.Drawing.Size(237, 17);
             this.operStatusLabel.Spring = true;
             this.operStatusLabel.Text = "tabPageStatus";
             // 
@@ -172,7 +175,7 @@
             // timeStatusLable
             // 
             this.timeStatusLable.Name = "timeStatusLable";
-            this.timeStatusLable.Size = new System.Drawing.Size(245, 17);
+            this.timeStatusLable.Size = new System.Drawing.Size(237, 17);
             this.timeStatusLable.Spring = true;
             this.timeStatusLable.Text = "timeStatus";
             // 
@@ -193,9 +196,12 @@
             // tabPage1
             // 
             this.tabPage1.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.tabPage1.Controls.Add(this.outputSaveButton);
+            this.tabPage1.Controls.Add(this.outputCopyButton);
+            this.tabPage1.Controls.Add(this.clearButton);
             this.tabPage1.Controls.Add(this.inputTextBox);
-            this.tabPage1.Controls.Add(this.button4);
-            this.tabPage1.Controls.Add(this.button2);
+            this.tabPage1.Controls.Add(this.inputSaveButton);
+            this.tabPage1.Controls.Add(this.inputOpenButton);
             this.tabPage1.Controls.Add(this.label2);
             this.tabPage1.Controls.Add(this.outputTextBox);
             this.tabPage1.Controls.Add(this.button1);
@@ -208,27 +214,37 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "文本关键词";
             // 
-            // button4
+            // inputTextBox
             // 
-            this.button4.Font = new System.Drawing.Font("宋体", 8F);
-            this.button4.Location = new System.Drawing.Point(85, 218);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(48, 21);
-            this.button4.TabIndex = 6;
-            this.button4.Text = "保存";
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
+            this.inputTextBox.Font = new System.Drawing.Font("宋体", 12F);
+            this.inputTextBox.Location = new System.Drawing.Point(31, 57);
+            this.inputTextBox.Multiline = true;
+            this.inputTextBox.Name = "inputTextBox";
+            this.inputTextBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.inputTextBox.Size = new System.Drawing.Size(617, 155);
+            this.inputTextBox.TabIndex = 7;
             // 
-            // button2
+            // inputSaveButton
             // 
-            this.button2.Font = new System.Drawing.Font("宋体", 8F);
-            this.button2.Location = new System.Drawing.Point(31, 218);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(48, 21);
-            this.button2.TabIndex = 5;
-            this.button2.Text = "打开";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.inputSaveButton.Font = new System.Drawing.Font("宋体", 8F);
+            this.inputSaveButton.Location = new System.Drawing.Point(85, 218);
+            this.inputSaveButton.Name = "inputSaveButton";
+            this.inputSaveButton.Size = new System.Drawing.Size(48, 21);
+            this.inputSaveButton.TabIndex = 6;
+            this.inputSaveButton.Text = "保存";
+            this.inputSaveButton.UseVisualStyleBackColor = true;
+            this.inputSaveButton.Click += new System.EventHandler(this.button4_Click);
+            // 
+            // inputOpenButton
+            // 
+            this.inputOpenButton.Font = new System.Drawing.Font("宋体", 8F);
+            this.inputOpenButton.Location = new System.Drawing.Point(31, 218);
+            this.inputOpenButton.Name = "inputOpenButton";
+            this.inputOpenButton.Size = new System.Drawing.Size(48, 21);
+            this.inputOpenButton.TabIndex = 5;
+            this.inputOpenButton.Text = "打开";
+            this.inputOpenButton.UseVisualStyleBackColor = true;
+            this.inputOpenButton.Click += new System.EventHandler(this.button2_Click);
             // 
             // label2
             // 
@@ -254,7 +270,7 @@
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("宋体", 12F);
-            this.button1.Location = new System.Drawing.Point(253, 256);
+            this.button1.Location = new System.Drawing.Point(255, 275);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(136, 28);
             this.button1.TabIndex = 2;
@@ -350,15 +366,38 @@
             this.dateTimer.Interval = 1000;
             this.dateTimer.Tick += new System.EventHandler(this.dateTimer_Tick);
             // 
-            // inputTextBox
+            // clearButton
             // 
-            this.inputTextBox.Font = new System.Drawing.Font("宋体", 12F);
-            this.inputTextBox.Location = new System.Drawing.Point(31, 57);
-            this.inputTextBox.Multiline = true;
-            this.inputTextBox.Name = "inputTextBox";
-            this.inputTextBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.inputTextBox.Size = new System.Drawing.Size(617, 155);
-            this.inputTextBox.TabIndex = 7;
+            this.clearButton.Font = new System.Drawing.Font("宋体", 8F);
+            this.clearButton.Location = new System.Drawing.Point(139, 218);
+            this.clearButton.Name = "clearButton";
+            this.clearButton.Size = new System.Drawing.Size(48, 21);
+            this.clearButton.TabIndex = 8;
+            this.clearButton.Text = "清除";
+            this.clearButton.UseVisualStyleBackColor = true;
+            this.clearButton.Click += new System.EventHandler(this.clearButton_Click);
+            // 
+            // outputCopyButton
+            // 
+            this.outputCopyButton.Font = new System.Drawing.Font("宋体", 8F);
+            this.outputCopyButton.Location = new System.Drawing.Point(31, 512);
+            this.outputCopyButton.Name = "outputCopyButton";
+            this.outputCopyButton.Size = new System.Drawing.Size(48, 21);
+            this.outputCopyButton.TabIndex = 9;
+            this.outputCopyButton.Text = "复制";
+            this.outputCopyButton.UseVisualStyleBackColor = true;
+            this.outputCopyButton.Click += new System.EventHandler(this.outputCopyButton_Click);
+            // 
+            // outputSaveButton
+            // 
+            this.outputSaveButton.Font = new System.Drawing.Font("宋体", 8F);
+            this.outputSaveButton.Location = new System.Drawing.Point(85, 512);
+            this.outputSaveButton.Name = "outputSaveButton";
+            this.outputSaveButton.Size = new System.Drawing.Size(48, 21);
+            this.outputSaveButton.TabIndex = 10;
+            this.outputSaveButton.Text = "保存";
+            this.outputSaveButton.UseVisualStyleBackColor = true;
+            this.outputSaveButton.Click += new System.EventHandler(this.outputSaveButton_Click);
             // 
             // Main
             // 
@@ -408,11 +447,11 @@
         private System.Windows.Forms.Timer dateTimer;
         private System.Windows.Forms.ToolStripProgressBar toolStripProgressBar1;
         private System.Windows.Forms.ToolStripMenuItem 退出ToolStripMenuItem;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button inputOpenButton;
         private System.Windows.Forms.ToolStripMenuItem 复制ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 粘贴ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 剪切ToolStripMenuItem;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button inputSaveButton;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.DataGridView dataGridView1;
@@ -420,6 +459,9 @@
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox inputTextBox;
+        private System.Windows.Forms.Button clearButton;
+        private System.Windows.Forms.Button outputSaveButton;
+        private System.Windows.Forms.Button outputCopyButton;
     }
 }
 

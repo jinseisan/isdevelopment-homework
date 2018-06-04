@@ -63,6 +63,7 @@ namespace ISFinalProject
                 StreamReader sr = new StreamReader(openFileDialog.FileName, Encoding.Default);
                 inputTextBox.Text = sr.ReadToEnd();
                 sr.Close();
+                this.operStatusLabel.Text = "打开成功";
             }
 
         }
@@ -101,6 +102,39 @@ namespace ISFinalProject
         private void 退出ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void clearButton_Click(object sender, EventArgs e)
+        {
+            inputTextBox.Text = "";
+            outputTextBox.Text = "";
+        }
+
+        private void outputCopyButton_Click(object sender, EventArgs e)
+        {
+            this.outputTextBox.Copy();
+            this.operStatusLabel.Text = "复制成功";
+        }
+
+        private void outputSaveButton_Click(object sender, EventArgs e)
+        {
+            if (outputTextBox.Text == "")
+            {
+                MessageBox.Show("没有任何结果！", "警告");
+                return;
+            }
+            SaveFileDialog MySaveFileDialog = new SaveFileDialog();
+            MySaveFileDialog.Filter = "文本文档(*.txt)|*.txt";
+            MySaveFileDialog.CreatePrompt = true;
+            MySaveFileDialog.OverwritePrompt = true;
+            MySaveFileDialog.RestoreDirectory = true;
+            if (MySaveFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                StreamWriter sw = new StreamWriter(MySaveFileDialog.FileName, false);
+                sw.WriteLine(this.outputTextBox.Text);
+                sw.Close();
+                this.operStatusLabel.Text = "保存成功";
+            }
         }
     }
 }
