@@ -123,21 +123,5 @@ namespace ISFinalProject
         [DllImport(path, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Winapi, EntryPoint = "NLPIR_SetPOSmap")]
         public static extern int NLPIR_SetPOSmap(int nPOSmap);
 
-        public static string ParagraphProcess(string paragraph)
-        {
-            if (!NLPIR_Init(@"../../ICTCLAS", 0, ""))//给出Data文件所在的路径，注意根据实际情况修改。
-            {
-                throw new Exception("Init ICTCLAS failed!");
-            }
-            NLPIR_SetPOSmap(3);//使用北大一级标注
-            paragraph.Replace('\n', ' ');
-            IntPtr intPtr = NLPIR_ParagraphProcess(paragraph);//切分结果保存为IntPtr类型
-            String str = Marshal.PtrToStringAnsi(intPtr).Replace(' ','\n');//将切分结果转换为string
-            StreamWriter sw = new StreamWriter(@"../../ProcessingFiles/NLPIR.txt");
-            sw.WriteLine(str);
-            sw.Close();
-            NLPIR_Exit();
-            return str;
-        }
     }
 }

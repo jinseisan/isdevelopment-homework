@@ -32,7 +32,7 @@ namespace ISFinalProject
             {
                 try
                 {
-                    outputTextBox.Text = NLPIRTool.ParagraphProcess(str);
+                    outputTextBox.Text = DataProcess.ParagraphProcess(str);
                 }
                 catch (Exception f) 
                 {
@@ -40,6 +40,16 @@ namespace ISFinalProject
                 }
                 
             }
+            /*
+            try
+            {
+                outputTextBox.Text = DataProcess.ParagraphProcess(DataProcess.MainProcess());
+            }
+            catch (Exception f)
+            {
+                MessageBox.Show(f.Message);
+            }*/
+            DataProcess.NLPIRProcess();
         }
 
         private void dateTimer_Tick(object sender, EventArgs e)
