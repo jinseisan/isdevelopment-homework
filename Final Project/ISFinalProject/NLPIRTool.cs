@@ -130,8 +130,12 @@ namespace ISFinalProject
                 throw new Exception("Init ICTCLAS failed!");
             }
             NLPIR_SetPOSmap(3);//使用北大一级标注
+            paragraph.Replace('\n', ' ');
             IntPtr intPtr = NLPIR_ParagraphProcess(paragraph);//切分结果保存为IntPtr类型
-            String str = Marshal.PtrToStringAnsi(intPtr);//将切分结果转换为string
+            String str = Marshal.PtrToStringAnsi(intPtr).Replace(' ','\n');//将切分结果转换为string
+            StreamWriter sw = new StreamWriter(@"../../ProcessingFiles/NLPIR.txt");
+            sw.WriteLine(str);
+            sw.Close();
             NLPIR_Exit();
             return str;
         }

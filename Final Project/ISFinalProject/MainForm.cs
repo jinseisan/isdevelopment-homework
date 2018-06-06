@@ -136,5 +136,11 @@ namespace ISFinalProject
                 this.operStatusLabel.Text = "保存成功";
             }
         }
+
+        private void inputCopyButton_Click(object sender, EventArgs e)
+        {
+            this.inputTextBox.Copy();
+            this.operStatusLabel.Text = "复制成功";
+        }
     }
 }
