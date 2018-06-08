@@ -20,6 +20,9 @@ namespace ISFinalProject
         static string FeatursAdress = @"../../ProcessingFiles/Featurs.txt";//经过fs处理最终包含所有特征的的Featurs.txt文件路径
         static string ResultAdress = @"../../ProcessingFiles/Result.txt";//经过CRFS处理得到结果的的Result.txt文件路径
 
+        //公共变量
+        static string Pubctuations = "：:，,？?、.。！!“”…—《》()（）";
+
         //对输入的字符串调用NLPIR分词处理并写入NLPIR.txt
         public static string ParagraphProcess(string paragraph)
         {
@@ -38,16 +41,36 @@ namespace ISFinalProject
             return str;
         }
 
+        //处理经过NLPIR分词后的一个词（如“文选/n”），对其每个字进行词性个构词处理
+        /* 构词原理：
+         * 标点B；英文/数字E；单个字D；词组T开头Z中间W结尾
+         */
+        public static string NLPIRWordProcess(string word)
+        {
+            string result = "";
+            string[] words = word.Split('/');
+            if (Pubctuations.Contains(words[0][0]))
+            {//如果第一个字符为标点，则取第一个字符加入result,前为词性标注，后为构词标注
+                result += words[0][0] + " " + words[1] + " B";
+            }
+
+
+            return result;
+        }
+
         //对NLPIR.txt文件进行词性和构词处理
         public static void NLPIRProcess()
         {
             StreamWriter sw = new StreamWriter(ClassifyAdress);
             StreamReader sr = new StreamReader(NLPIRAdress);
 
-            string str = sr.ReadLine().ToString();
+            string strLine = sr.ReadLine();
+            while (strLine != null)
+            {
+                sw.WriteLine(strLine);
+                strLine = sr.ReadLine();
+            }  
             
-            
-            sw.WriteLine(str);
 
             sw.Close();
             sr.Close();

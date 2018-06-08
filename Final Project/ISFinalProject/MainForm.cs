@@ -33,6 +33,7 @@ namespace ISFinalProject
                 try
                 {
                     outputTextBox.Text = DataProcess.ParagraphProcess(str);
+                    
                 }
                 catch (Exception f) 
                 {
@@ -50,6 +51,7 @@ namespace ISFinalProject
                 MessageBox.Show(f.Message);
             }*/
             DataProcess.NLPIRProcess();
+            
         }
 
         private void dateTimer_Tick(object sender, EventArgs e)
