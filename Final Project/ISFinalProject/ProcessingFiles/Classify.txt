@@ -1,31 +1,106 @@
--/w
-NF/n
-æ‚²ä¼¤/a
-çš„/u
-é£Ÿ/g
-å°¸/g
-é¬¼/n
+²¼	N	D
+¶Ù	Q	D
+·ð	N	T
+½Ì	N	W
+Ê·	G	D
+£¨	W	B
+ºº	N	T
+ÎÄ	N	W
+°æ	N	D
+£©	W	B
 
-å¯æ€œ/v
-å¤©ä¸‹/n
-çˆ¶æ¯/n
-å¿ƒ/n
-1990-2001/m
+Ê±	G	D
+ÂÖ	G	D
+¸ù	D	T
+±¾	D	W
+ÃÜ	A	D
+Ðø	V	D
+£º	W	B
+¾õ	V	D
+ÄÒ	G	D
+ÅÉ	V	D
+½Ì	N	T
+·¨	N	W
+Ê·	N	D
+£¨	W	B
+ºº	N	T
+ÎÄ	N	W
+°æ	N	D
+£©	W	B
 
-FG/n
--/w
-æ˜¯/v
-æ—¶å€™/n
-æŽ€èµ·/v
-åº•ç‰Œ/n
-äº†/y
+¹Å	T	D
+¼¸	M	D
+ÔÞ	G	D
+£º	W	B
+¹é	V	D
+ÆÓ	N	D
+íè	G	D
+´Ô	G	D
+¸å	G	D
+£¨	W	B
+Í¬	N	T
+ÖÎ	N	W
+¿Ì	N	T
+±¾	N	W
+£©	W	B
 
-æ²¡/d
-æœ‰/v
-å…‰/n
-çš„/u
-äººç”Ÿ/n
-P/o
-&/w
-G/o
+µÚ	M	T
+Èý	M	W
+´Î	Q	D
+ÀË	N	T
+³±	N	W
+³å	V	T
+»÷	V	W
+¡¶	W	B
+²Ý	N	T
+Ô­	N	W
+¡·	W	B
+¾í	V	D
+Ê×	M	D
+Óï	G	D
+
+Ãñ	N	T
+×å	N	W
+Òâ	N	T
+Ê¶	N	W
+µÄ	U	D
+¹¹	V	T
+½¨	V	W
+¡¢	W	B
+½â	N	T
+¹¹	N	W
+Óë	P	D
+ÖØ	V	T
+¹¹	V	W
+
+ÎÊ	N	T
+Ìâ	N	W
+Óë	C	D
+·½	N	T
+·¨	N	W
+¡ª¡ª	W	B
+ÖÐ	N	T
+¹ú	N	W
+·½	N	T
+·¨	N	W
+ÎÄ	N	T
+Ñ§	N	Z
+Ê·	N	W
+ÑÐ	V	T
+¾¿	V	W
+½²	N	T
+¸å	N	W
+
+³Â	N	D
+ÊÏ	G	D
+Ì«	N	T
+¼«	N	Z
+È­	N	W
+Í¼	N	T
+Ëµ	N	W
+
+µØ	N	T
+Ôµ	N	W
+ÎÄ	N	T
+Ã÷	N	W
 

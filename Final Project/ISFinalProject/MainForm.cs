@@ -50,7 +50,13 @@ namespace ISFinalProject
             {
                 MessageBox.Show(f.Message);
             }*/
-            DataProcess.NLPIRProcess();
+            //DataProcess.NLPIRProcess();
+            //DataProcess.ClassifyProcess();
+            //DataProcess.LevelProcess();
+            DataProcess.FSProcess();
+            DataProcess.CRFSProcess("modelc");
+
+
             
         }
 
