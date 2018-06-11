@@ -59,7 +59,7 @@ namespace ISFinalProject
 
     class NLPIRTool
     {
-        const string path = @"../../ICTCLAS/NLPIR.dll";//设定dll的路径
+        const string path = @"../../Resources/ICTCLAS/NLPIR.dll";//设定dll的路径
         //对函数进行申明
         [DllImport(path, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Winapi, EntryPoint = "NLPIR_Init")]
         public static extern bool NLPIR_Init(String sInitDirPath, int encoding, String sLicenseCode);
@@ -123,17 +123,5 @@ namespace ISFinalProject
         [DllImport(path, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Winapi, EntryPoint = "NLPIR_SetPOSmap")]
         public static extern int NLPIR_SetPOSmap(int nPOSmap);
 
-        public static string ParagraphProcess(string paragraph)
-        {
-            if (!NLPIR_Init(@"../../ICTCLAS", 0, ""))//给出Data文件所在的路径，注意根据实际情况修改。
-            {
-                throw new Exception("Init ICTCLAS failed!");
-            }
-            NLPIR_SetPOSmap(3);//使用北大一级标注
-            IntPtr intPtr = NLPIR_ParagraphProcess(paragraph);//切分结果保存为IntPtr类型
-            String str = Marshal.PtrToStringAnsi(intPtr);//将切分结果转换为string
-            NLPIR_Exit();
-            return str;
-        }
     }
 }
