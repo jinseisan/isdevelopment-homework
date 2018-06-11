@@ -299,7 +299,7 @@ namespace ISFinalProject
          */
         public static string NLPIRWordProcess(string input_word)
         {
-            //判断字符串是否符合格式“词/词性”
+            //判断字符串是否符合格式“词/词性”，只为了判断空行
             if (!input_word.Contains('/')) return "";
 
             //创建正则表达式，用来判断字符串中内容
@@ -310,7 +310,7 @@ namespace ISFinalProject
 
             //避免使用split()方法，因为词语可能本身就自带'/'符号
             string cx = input_word[input_word.LastIndexOf('/')+1].ToString().ToUpper();//最后一个'/'字符的后一位为词性
-            string word = input_word.Remove(input_word.LastIndexOf('/'));//取去掉最后两个字符的新串为单词
+            string word = input_word.Remove(input_word.LastIndexOf('/'));//取去掉最一个'/'后的所有字符的新串为单词
 
             //进行逻辑判断并进行词性和构词处理
             if (cx[0] == 'W' || Punctuations.Contains(cx[0]))
