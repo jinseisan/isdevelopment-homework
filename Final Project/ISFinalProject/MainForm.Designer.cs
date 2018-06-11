@@ -45,6 +45,7 @@
             this.timeStatusLable = new System.Windows.Forms.ToolStripStatusLabel();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.inputCopyButton = new System.Windows.Forms.Button();
             this.outputSaveButton = new System.Windows.Forms.Button();
             this.outputCopyButton = new System.Windows.Forms.Button();
             this.clearButton = new System.Windows.Forms.Button();
@@ -63,7 +64,6 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.dateTimer = new System.Windows.Forms.Timer(this.components);
-            this.inputCopyButton = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -97,21 +97,21 @@
             // toolStripMenuItem2
             // 
             this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(152, 22);
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(136, 22);
             this.toolStripMenuItem2.Text = "文本关键词";
             this.toolStripMenuItem2.Click += new System.EventHandler(this.toolStripMenuItem2_Click);
             // 
             // toolStripMenuItem3
             // 
             this.toolStripMenuItem3.Name = "toolStripMenuItem3";
-            this.toolStripMenuItem3.Size = new System.Drawing.Size(152, 22);
+            this.toolStripMenuItem3.Size = new System.Drawing.Size(136, 22);
             this.toolStripMenuItem3.Text = "文献信息";
             this.toolStripMenuItem3.Click += new System.EventHandler(this.toolStripMenuItem3_Click);
             // 
             // 退出ToolStripMenuItem
             // 
             this.退出ToolStripMenuItem.Name = "退出ToolStripMenuItem";
-            this.退出ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.退出ToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
             this.退出ToolStripMenuItem.Text = "退出";
             this.退出ToolStripMenuItem.Click += new System.EventHandler(this.退出ToolStripMenuItem_Click);
             // 
@@ -128,19 +128,19 @@
             // 复制ToolStripMenuItem
             // 
             this.复制ToolStripMenuItem.Name = "复制ToolStripMenuItem";
-            this.复制ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.复制ToolStripMenuItem.Size = new System.Drawing.Size(100, 22);
             this.复制ToolStripMenuItem.Text = "复制";
             // 
             // 粘贴ToolStripMenuItem
             // 
             this.粘贴ToolStripMenuItem.Name = "粘贴ToolStripMenuItem";
-            this.粘贴ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.粘贴ToolStripMenuItem.Size = new System.Drawing.Size(100, 22);
             this.粘贴ToolStripMenuItem.Text = "粘贴";
             // 
             // 剪切ToolStripMenuItem
             // 
             this.剪切ToolStripMenuItem.Name = "剪切ToolStripMenuItem";
-            this.剪切ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.剪切ToolStripMenuItem.Size = new System.Drawing.Size(100, 22);
             this.剪切ToolStripMenuItem.Text = "剪切";
             // 
             // 帮助ToolStripMenuItem
@@ -216,21 +216,32 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "文本关键词";
             // 
+            // inputCopyButton
+            // 
+            this.inputCopyButton.Font = new System.Drawing.Font("宋体", 8F);
+            this.inputCopyButton.Location = new System.Drawing.Point(139, 218);
+            this.inputCopyButton.Name = "inputCopyButton";
+            this.inputCopyButton.Size = new System.Drawing.Size(48, 21);
+            this.inputCopyButton.TabIndex = 11;
+            this.inputCopyButton.Text = "复制";
+            this.inputCopyButton.UseVisualStyleBackColor = true;
+            this.inputCopyButton.Click += new System.EventHandler(this.inputCopyButton_Click);
+            // 
             // outputSaveButton
             // 
             this.outputSaveButton.Font = new System.Drawing.Font("宋体", 8F);
-            this.outputSaveButton.Location = new System.Drawing.Point(85, 512);
+            this.outputSaveButton.Location = new System.Drawing.Point(31, 512);
             this.outputSaveButton.Name = "outputSaveButton";
             this.outputSaveButton.Size = new System.Drawing.Size(48, 21);
             this.outputSaveButton.TabIndex = 10;
-            this.outputSaveButton.Text = "保存";
+            this.outputSaveButton.Text = "导出..";
             this.outputSaveButton.UseVisualStyleBackColor = true;
             this.outputSaveButton.Click += new System.EventHandler(this.outputSaveButton_Click);
             // 
             // outputCopyButton
             // 
             this.outputCopyButton.Font = new System.Drawing.Font("宋体", 8F);
-            this.outputCopyButton.Location = new System.Drawing.Point(31, 512);
+            this.outputCopyButton.Location = new System.Drawing.Point(85, 512);
             this.outputCopyButton.Name = "outputCopyButton";
             this.outputCopyButton.Size = new System.Drawing.Size(48, 21);
             this.outputCopyButton.TabIndex = 9;
@@ -262,11 +273,11 @@
             // inputSaveButton
             // 
             this.inputSaveButton.Font = new System.Drawing.Font("宋体", 8F);
-            this.inputSaveButton.Location = new System.Drawing.Point(139, 218);
+            this.inputSaveButton.Location = new System.Drawing.Point(85, 218);
             this.inputSaveButton.Name = "inputSaveButton";
             this.inputSaveButton.Size = new System.Drawing.Size(48, 21);
             this.inputSaveButton.TabIndex = 6;
-            this.inputSaveButton.Text = "保存";
+            this.inputSaveButton.Text = "导出..";
             this.inputSaveButton.UseVisualStyleBackColor = true;
             this.inputSaveButton.Click += new System.EventHandler(this.button4_Click);
             // 
@@ -277,7 +288,7 @@
             this.inputOpenButton.Name = "inputOpenButton";
             this.inputOpenButton.Size = new System.Drawing.Size(48, 21);
             this.inputOpenButton.TabIndex = 5;
-            this.inputOpenButton.Text = "打开";
+            this.inputOpenButton.Text = "导入..";
             this.inputOpenButton.UseVisualStyleBackColor = true;
             this.inputOpenButton.Click += new System.EventHandler(this.button2_Click);
             // 
@@ -400,17 +411,6 @@
             // 
             this.dateTimer.Interval = 1000;
             this.dateTimer.Tick += new System.EventHandler(this.dateTimer_Tick);
-            // 
-            // inputCopyButton
-            // 
-            this.inputCopyButton.Font = new System.Drawing.Font("宋体", 8F);
-            this.inputCopyButton.Location = new System.Drawing.Point(85, 218);
-            this.inputCopyButton.Name = "inputCopyButton";
-            this.inputCopyButton.Size = new System.Drawing.Size(48, 21);
-            this.inputCopyButton.TabIndex = 11;
-            this.inputCopyButton.Text = "复制";
-            this.inputCopyButton.UseVisualStyleBackColor = true;
-            this.inputCopyButton.Click += new System.EventHandler(this.inputCopyButton_Click);
             // 
             // Main
             // 

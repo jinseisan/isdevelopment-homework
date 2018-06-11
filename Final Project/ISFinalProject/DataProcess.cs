@@ -336,17 +336,24 @@ namespace ISFinalProject
                     {//2.3.1如果不含中文,需考虑特殊字符的用法：'-'和出现在末尾的':'
                         if (word.Contains('-'))
                         {//2.3.1.1 如果包含-符号而分词未分开
-                            string[] words = word.Split('-');
+                            string[] words = word.Split(new char[] { '-' }, StringSplitOptions.RemoveEmptyEntries);
+                            result = "";
                             if (words.Length == 1)
                             {//如果拆分后只有一个，即'-'出现在首尾
-                                result = "";
-                                if (word[0] == '-') result += '-' + "\t" + cx + "\tB\n";
-                                result += words[0] + "\t" + cx + "\tE\n";
-                                if (word[word.Length - 1] == '-') result += '-' + "\t" + cx + "\tB";
+                                if (word[0] == '-')
+                                {
+                                    result += '-' + "\t" + cx + "\tB\n";
+                                    result += words[0] + "\t" + cx + "\tE";
+                                }
+                                else
+                                {
+                                    result += words[0] + "\t" + cx + "\tE\n";
+                                    result += '-' + "\t" + cx + "\tB";
+                                }
+                                
                             }
                             else
                             {//拆分后单词大于等于2，即'-'出现在词中
-                                result = "";
                                 //将除最后一项加入result字符串
                                 for (int i = 0; i < words.Length - 1; i++)
                                 {
@@ -606,6 +613,38 @@ namespace ISFinalProject
         /*过程6
          * 读取Results.txt文件，对其最后一列属性值判断，找出关键词并返回关键词
          */
+        public static ArrayList GetKeyWords()
+        {
+            StreamReader sr = new StreamReader(ResultAdress, Encoding.Default);
+            ArrayList result = new ArrayList();
+            string temp = "";
+
+            string strLine = sr.ReadLine();
+            while (strLine != null)
+            {
+                if (strLine == "")
+                {
+                    strLine = sr.ReadLine(); 
+                    continue;
+                }
+                if (strLine.Last() == 'B')
+                {
+                    temp += strLine.Split('\t')[0];
+                    strLine = sr.ReadLine();
+                    while (strLine != null && strLine.Last() == 'M')
+                    {
+                        temp += strLine.Split('\t')[0];
+                        strLine = sr.ReadLine();
+                    }
+                    temp += strLine.Split('\t')[0];
+                    if (!result.Contains(temp)) result.Add(temp);//防止重复
+                    temp = "";
+                }
+                strLine = sr.ReadLine();
+            }
+            sr.Close();
+            return result;
+        }
 
 
         //方法：按行读取文件，每行保存到一个ArrayList对象中，并返回该对象。

@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
+using System.Collections;
 
 namespace ISFinalProject
 {
@@ -53,8 +54,15 @@ namespace ISFinalProject
             //DataProcess.NLPIRProcess();
             //DataProcess.ClassifyProcess();
             //DataProcess.LevelProcess();
-            DataProcess.FSProcess();
-            DataProcess.CRFSProcess("modelc");
+            //DataProcess.FSProcess();
+            //DataProcess.CRFSProcess("modelc");
+            ArrayList keyWords = DataProcess.GetKeyWords();
+            string keywords = "";
+            for (int i = 0; i < keyWords.Count; i++)
+            {
+                keywords += keyWords[i].ToString() + ";";
+            }
+            outputTextBox.Text = keywords;
 
 
             
@@ -73,7 +81,7 @@ namespace ISFinalProject
         private void button2_Click(object sender, EventArgs e)
         {
             OpenFileDialog openFileDialog = new OpenFileDialog();
-            openFileDialog.Filter = "文本文件|*.txt|所有文件|*.*";
+            openFileDialog.Filter = "文本文件(*.txt)|*.txt|所有文件(*.*)|*.*";
             openFileDialog.RestoreDirectory = true;
             openFileDialog.FilterIndex = 1;
             if (openFileDialog.ShowDialog() == DialogResult.OK)
@@ -90,7 +98,7 @@ namespace ISFinalProject
         {
             if (this.inputTextBox.Text.ToString().Trim() == "")
             {
-                MessageBox.Show("您未输入任何内容！", "警告");
+                MessageBox.Show("内容为空！", "警告");
                 return;
             }
             SaveFileDialog MySaveFileDialog = new SaveFileDialog();
@@ -138,7 +146,7 @@ namespace ISFinalProject
         {
             if (outputTextBox.Text == "")
             {
-                MessageBox.Show("没有任何结果！", "警告");
+                MessageBox.Show("内容为空！", "警告");
                 return;
             }
             SaveFileDialog MySaveFileDialog = new SaveFileDialog();

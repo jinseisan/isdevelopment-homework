@@ -103,4 +103,8 @@
 ิต	N	W
 ฮฤ	N	T
 ร๗	N	W
+-	N	B
+NF	N	E
+NF	N	E
+-	N	B
 
