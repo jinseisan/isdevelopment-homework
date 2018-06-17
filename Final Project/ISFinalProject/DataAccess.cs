@@ -12,6 +12,7 @@ namespace ISFinalProject
     //数据库访问类
     class DataAccess
     {
+       // public static DataSet savedata=new DataSet ();
         //连接字符串
         public static string connstr = ConfigurationManager.AppSettings["ConnectionString"].ToString();
 
@@ -47,6 +48,20 @@ namespace ISFinalProject
             da.Fill(ds);
             CloseConnection();
             return ds;
+        }
+        public static DataSet GetTitleByTi(string ti)
+        {
+
+            string SQLstr = "select * from cssci2014_sql where 来源篇名 like '%" + ti + "%' order by 来源篇名 desc";
+
+            OpenConnection();
+            SqlDataAdapter da = new SqlDataAdapter(SQLstr, Connection);
+          
+             DataSet ds = new DataSet();
+            da.Fill(ds);
+            CloseConnection();
+            return ds ;
+
         }
     }
 }

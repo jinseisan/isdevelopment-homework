@@ -9,3 +9,13 @@ F:\jinseisan\isdevelopment-homework\Final Project\ISFinalProject\obj\Debug\ISFin
 F:\jinseisan\isdevelopment-homework\Final Project\ISFinalProject\obj\Debug\ISFinalProject.pdb
 F:\jinseisan\isdevelopment-homework\Final Project\ISFinalProject\obj\Debug\ISFinalProject.Main.resources
 F:\jinseisan\isdevelopment-homework\Final Project\ISFinalProject\obj\Debug\ISFinalProject.ReferenceForm.resources
+D:\学习\大三\大三下\信息系统\大作业\isdevelopment-homework\Final Project\ISFinalProject\bin\Debug\ISFinalProject.exe.config
+D:\学习\大三\大三下\信息系统\大作业\isdevelopment-homework\Final Project\ISFinalProject\obj\Debug\ISFinalProject.exe
+D:\学习\大三\大三下\信息系统\大作业\isdevelopment-homework\Final Project\ISFinalProject\obj\Debug\ISFinalProject.pdb
+D:\学习\大三\大三下\信息系统\大作业\isdevelopment-homework\Final Project\ISFinalProject\bin\Debug\ISFinalProject.exe
+D:\学习\大三\大三下\信息系统\大作业\isdevelopment-homework\Final Project\ISFinalProject\bin\Debug\ISFinalProject.pdb
+D:\学习\大三\大三下\信息系统\大作业\isdevelopment-homework\Final Project\ISFinalProject\obj\Debug\ISFinalProject.csprojResolveAssemblyReference.cache
+D:\学习\大三\大三下\信息系统\大作业\isdevelopment-homework\Final Project\ISFinalProject\obj\Debug\ISFinalProject.Main.resources
+D:\学习\大三\大三下\信息系统\大作业\isdevelopment-homework\Final Project\ISFinalProject\obj\Debug\ISFinalProject.Properties.Resources.resources
+D:\学习\大三\大三下\信息系统\大作业\isdevelopment-homework\Final Project\ISFinalProject\obj\Debug\ISFinalProject.ReferenceForm.resources
+D:\学习\大三\大三下\信息系统\大作业\isdevelopment-homework\Final Project\ISFinalProject\obj\Debug\ISFinalProject.csproj.GenerateResource.Cache

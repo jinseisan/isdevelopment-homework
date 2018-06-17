@@ -164,7 +164,7 @@
             // operStatusLabel
             // 
             this.operStatusLabel.Name = "operStatusLabel";
-            this.operStatusLabel.Size = new System.Drawing.Size(222, 17);
+            this.operStatusLabel.Size = new System.Drawing.Size(237, 17);
             this.operStatusLabel.Spring = true;
             this.operStatusLabel.Text = "tabPageStatus";
             // 
@@ -176,7 +176,7 @@
             // timeStatusLable
             // 
             this.timeStatusLable.Name = "timeStatusLable";
-            this.timeStatusLable.Size = new System.Drawing.Size(222, 17);
+            this.timeStatusLable.Size = new System.Drawing.Size(237, 17);
             this.timeStatusLable.Spring = true;
             this.timeStatusLable.Text = "timeStatus";
             // 
@@ -353,12 +353,12 @@
             // textBox2
             // 
             this.textBox2.Font = new System.Drawing.Font("宋体", 10F);
-            this.textBox2.Location = new System.Drawing.Point(43, 410);
+            this.textBox2.Location = new System.Drawing.Point(46, 410);
             this.textBox2.Multiline = true;
             this.textBox2.Name = "textBox2";
             this.textBox2.ReadOnly = true;
             this.textBox2.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textBox2.Size = new System.Drawing.Size(600, 125);
+            this.textBox2.Size = new System.Drawing.Size(588, 125);
             this.textBox2.TabIndex = 5;
             // 
             // label4
@@ -373,11 +373,16 @@
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
+            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(43, 81);
+            this.dataGridView1.Location = new System.Drawing.Point(46, 88);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(600, 276);
+            this.dataGridView1.ReadOnly = true;
+            this.dataGridView1.Size = new System.Drawing.Size(588, 272);
             this.dataGridView1.TabIndex = 3;
+            this.dataGridView1.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView1_CellMouseClick);
             // 
             // button3
             // 
@@ -388,6 +393,7 @@
             this.button3.TabIndex = 2;
             this.button3.Text = "搜索";
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // textBox1
             // 

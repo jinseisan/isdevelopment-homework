@@ -12,8 +12,10 @@ using System.Collections;
 
 namespace ISFinalProject
 {
+
     public partial class Main : Form
     {
+        public static DataSet savedata = new DataSet();
         public Main()
         {
             InitializeComponent();
@@ -167,6 +169,33 @@ namespace ISFinalProject
         {
             this.inputTextBox.Copy();
             this.operStatusLabel.Text = "复制成功";
+        }
+       
+        private void button3_Click(object sender, EventArgs e)
+        {
+            string ti = this.textBox1.Text;
+            savedata =DataAccess.GetTitleByTi(ti);
+            DataTable table = savedata.Tables[0].DefaultView .ToTable (false,new string[]{"来源篇名","来源作者","第一机构","年代卷期","文章类型"});
+             DataView dv = new DataView(table);
+            this.dataGridView1.DataSource =dv;
+        }
+
+        private void dataGridView1_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            string otherinfo="";
+            if (e.RowIndex >= 0)
+            {
+                otherinfo +="文件序号："+ savedata.Tables[0].Rows[e.RowIndex]["文件序号"].ToString ().Trim ()+"\r\n";
+                otherinfo += "英文篇名：" + savedata.Tables[0].Rows[e.RowIndex]["英文篇名"].ToString().Trim() + "\r\n";
+                otherinfo += "来源作者：" + savedata.Tables[0].Rows[e.RowIndex]["来源作者"].ToString().Trim() + "\r\n";
+                otherinfo +="期刊："+ savedata.Tables[0].Rows[e.RowIndex]["期刊"].ToString().Trim() + "\n";
+                otherinfo +="机构名称："+ savedata.Tables[0].Rows[e.RowIndex]["机构名称"].ToString().Trim() + "\r\n";
+                otherinfo += "学科分类：" + savedata.Tables[0].Rows[e.RowIndex]["学科分类"].ToString().Trim() + "\r\n";
+                otherinfo +="第一作者："+ savedata.Tables[0].Rows[e.RowIndex]["第一作者"].ToString().Trim() + "\r\n";
+                otherinfo += "中图类号：" + savedata.Tables[0].Rows[e.RowIndex]["中图类号"].ToString().Trim() + "\r\n";
+                otherinfo += "关键词：" + savedata.Tables[0].Rows[e.RowIndex]["关键词"].ToString().Trim().Replace('/', ';') + "\r\n";
+                this.textBox2.Text = otherinfo;
+            }
         }
     }
 }
