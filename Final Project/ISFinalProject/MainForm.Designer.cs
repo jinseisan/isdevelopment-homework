@@ -164,7 +164,7 @@
             // operStatusLabel
             // 
             this.operStatusLabel.Name = "operStatusLabel";
-            this.operStatusLabel.Size = new System.Drawing.Size(237, 17);
+            this.operStatusLabel.Size = new System.Drawing.Size(222, 17);
             this.operStatusLabel.Spring = true;
             this.operStatusLabel.Text = "tabPageStatus";
             // 
@@ -176,7 +176,7 @@
             // timeStatusLable
             // 
             this.timeStatusLable.Name = "timeStatusLable";
-            this.timeStatusLable.Size = new System.Drawing.Size(237, 17);
+            this.timeStatusLable.Size = new System.Drawing.Size(222, 17);
             this.timeStatusLable.Spring = true;
             this.timeStatusLable.Text = "timeStatus";
             // 
