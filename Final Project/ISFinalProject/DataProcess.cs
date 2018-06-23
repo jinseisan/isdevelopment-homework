@@ -24,7 +24,7 @@ namespace ISFinalProject
         static string ResultAdress = @"../../ProcessingFiles/Results.txt";//经过CRFS处理得到结果的的Results.txt文件路径
 
         //标点符号
-        static string Punctuations = "：:，,？?、.。！!“”…‘’—－《》()（）[]·<>";
+        static string Punctuations = "：:，,？?、.。！!“”…《》‘’—－·";
 
         //分类特征变量
         //1.指事字 特征X
@@ -282,7 +282,7 @@ namespace ISFinalProject
             paragraph = paragraph.Replace("\n"," ");//将换行符替换为空
             IntPtr intPtr = NLPIRTool.NLPIR_ParagraphProcess(paragraph.Trim());//切分结果保存为IntPtr类型
             String str = Marshal.PtrToStringAnsi(intPtr);//将切分结果转换为string，将空格替换为制表符'\n'
-            str = str.Replace(' ', '\n').Replace("\n\n","\n");
+            str = str.Replace(' ', '\n').Replace("\n\n","\n").Replace("——","—");
             StreamWriter sw = new StreamWriter(NLPIRAdress,false,Encoding.Default);
             sw.WriteLine(str);
             sw.Close();
@@ -313,8 +313,8 @@ namespace ISFinalProject
             string word = input_word.Remove(input_word.LastIndexOf('/'));//取去掉最一个'/'后的所有字符的新串为单词
 
             //进行逻辑判断并进行词性和构词处理
-            if (cx[0] == 'W' || Punctuations.Contains(cx[0]))
-            {//1.如果为标点（标注为/w）或存在于定义的标点字符串中，则取第一个字符加入result,前为词性标注，后为构词标注
+            if (Punctuations.Contains(cx[0]))
+            {//1.如果存在于定义的标点字符串中，则取第一个字符加入result,前为词性标注，后为构词标注
                 result = word + "\t" + cx + "\tB";
             }
             else
@@ -326,14 +326,14 @@ namespace ISFinalProject
                         result = word + "\t" + cx + "\tD";
                     }
                     else
-                    {//2.1.2 如果是非汉字
+                    {//2.1.2 如果是非汉字（或者括号）
                         result = word + "\t" + cx + "\tE";
                     }
                 }
                 else
                 {//2.2 如果单词长度>=2
                     if (!Regex.IsMatch(word, @"[\u4e00-\u9fa5]"))
-                    {//2.3.1如果不含中文,需考虑特殊字符的用法：'-'和出现在末尾的':'
+                    {//2.3.1如果不含中文,需考虑特殊字符的用法：中英文的'-'和出现在末尾的':'
                         if (word.Contains('-'))
                         {//2.3.1.1 如果包含-符号而分词未分开
                             string[] words = word.Split(new char[] { '-' }, StringSplitOptions.RemoveEmptyEntries);
@@ -364,13 +364,43 @@ namespace ISFinalProject
                                 result += words[words.Length - 1] + "\t" + cx + "\tE";
                             }
                         }
+                        else if (word.Contains('—'))
+                        {//2.3.1.2字符中间包含中文的破折号
+                            string[] words = word.Split(new char[] { '—' }, StringSplitOptions.RemoveEmptyEntries);
+                            result = "";
+                            if (words.Length == 1)
+                            {//如果拆分后只有一个，即'—'出现在首尾
+                                if (word[0] == '—')
+                                {
+                                    result += '—' + "\t" + cx + "\tB\n";
+                                    result += words[0] + "\t" + cx + "\tE";
+                                }
+                                else
+                                {
+                                    result += words[0] + "\t" + cx + "\tE\n";
+                                    result += '—' + "\t" + cx + "\tB";
+                                }
+                                
+                            }
+                            else if (words.Length > 1)
+                            {//拆分后单词大于等于2，即'—'出现在词中
+                                //将除最后一项加入result字符串
+                                for (int i = 0; i < words.Length - 1; i++)
+                                {
+                                    result += words[i] + "\t" + cx + "\tE\n";
+                                    result += '—' + "\t" + cx + "\tB\n";
+                                }
+                                //将最后一项加入result字符串
+                                result += words[words.Length - 1] + "\t" + cx + "\tE";
+                            }
+                        }
                         else if (word[word.Length - 1] == ':')
-                        {//2.3.1.2 最后一个字符为':'而分词未分开
+                        {//2.3.1.3 最后一个字符为':'而分词未分开
                             result = word.Remove(word.Length - 1, 1) + "\t" + cx + "\tE\n";
                             result += ':' + "\t" + cx + "\tB";
                         }
                         else
-                        {//2.3.1.3 如果不含标点，是其他字符串
+                        {//2.3.1.4 如果不含标点，是其他字符串
                             result = word + "\t" + cx + "\tE";
                         }
                     }

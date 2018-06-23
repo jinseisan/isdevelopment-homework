@@ -57,7 +57,7 @@ namespace ISFinalProject
             OpenConnection();
             SqlDataAdapter da = new SqlDataAdapter(SQLstr, Connection);
           
-             DataSet ds = new DataSet();
+            DataSet ds = new DataSet();
             da.Fill(ds);
             CloseConnection();
             return ds ;

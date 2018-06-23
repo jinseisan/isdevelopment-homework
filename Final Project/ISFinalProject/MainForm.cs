@@ -9,13 +9,16 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
 using System.Collections;
+using System.Threading;
 
 namespace ISFinalProject
 {
 
     public partial class Main : Form
     {
-        public static DataSet savedata = new DataSet();
+        public static string inputstr = "";
+        protected static DataSet savedata = new DataSet();//保存数据库读取的DataSet为临时变量
+        protected static Thread processThread ;//数据处理线程对象
         public Main()
         {
             InitializeComponent();
@@ -26,48 +29,40 @@ namespace ISFinalProject
             this.timeStatusLable.Text = "当前时间： " + DateTime.Now.ToLongDateString() + " " + DateTime.Now.ToLongTimeString();
             dateTimer.Start();
             this.operStatusLabel.Text = tabControl1.TabPages[0].Text;
+            button3_Click(null, EventArgs.Empty);
+            Initial_Thread();
+
+        }
+        private void Initial_Thread()
+        {
+            if (processThread==null){}
+            else if(processThread.IsAlive) { processThread.Abort(); }
+            //将线程绑定
+            ThreadMethod method = new ThreadMethod();
+            //先订阅一下事件  
+            method.threadStartEvent += new EventHandler(method_threadStartEvent);
+            method.threadEvent += new EventHandler(method_threadEvent);
+            method.threadEndEvent += new EventHandler(method_threadEndEvent);
+
+            processThread = new Thread(new ThreadStart(method.runMethod));
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            string str = inputTextBox.Text.ToString().Trim();
-            if (str != "")
-            {
-                try
-                {
-                    outputTextBox.Text = DataProcess.ParagraphProcess(str);
-                    
-                }
-                catch (Exception f) 
-                {
-                    MessageBox.Show(f.Message);
-                }
-                
-            }
+            this.progressBar1.Value = 0;
+            Initial_Thread();
+            processThread.Start();
             /*
             try
             {
-                outputTextBox.Text = DataProcess.ParagraphProcess(DataProcess.MainProcess());
+                Initial_Thread();
+                processThread.Start();
             }
-            catch (Exception f)
+            catch(Exception f)
             {
                 MessageBox.Show(f.Message);
             }*/
-            //DataProcess.NLPIRProcess();
-            //DataProcess.ClassifyProcess();
-            //DataProcess.LevelProcess();
-            //DataProcess.FSProcess();
-            //DataProcess.CRFSProcess("modelc");
-            ArrayList keyWords = DataProcess.GetKeyWords();
-            string keywords = "";
-            for (int i = 0; i < keyWords.Count; i++)
-            {
-                keywords += keyWords[i].ToString() + ";";
-            }
-            outputTextBox.Text = keywords;
-
-
-            
+              
         }
 
         private void dateTimer_Tick(object sender, EventArgs e)
@@ -176,7 +171,7 @@ namespace ISFinalProject
             string ti = this.textBox1.Text;
             savedata =DataAccess.GetTitleByTi(ti);
             DataTable table = savedata.Tables[0].DefaultView .ToTable (false,new string[]{"来源篇名","来源作者","第一机构","年代卷期","文章类型"});
-             DataView dv = new DataView(table);
+            DataView dv = new DataView(table);
             this.dataGridView1.DataSource =dv;
         }
 
@@ -197,5 +192,141 @@ namespace ISFinalProject
                 this.textBox2.Text = otherinfo;
             }
         }
+
+        //ProgressBar相关设定
+
+        //线程开始的时候调用的委托  
+        private delegate void maxValueDelegate(int maxValue);
+        //线程执行中调用的委托  
+        private delegate void nowValueDelegate(int nowValue);
+        //线程执行中调用的委托  
+        private delegate void outputValueDelegate(string keywords);
+
+        /// <summary>  
+        /// 线程开始事件,设置进度条最大值  
+        /// 但是我不能直接操作进度条,需要一个委托来替我完成  
+        /// </summary>  
+        /// <param name="sender">ThreadMethod函数中传过来的最大值</param>  
+        /// <param name="e"></param>  
+        void method_threadStartEvent(object sender, EventArgs e)
+        {
+            int maxValue = Convert.ToInt32(sender);
+            maxValueDelegate max = new maxValueDelegate(setMax);
+            this.Invoke(max, maxValue);
+        }
+
+        /// <summary>  
+        /// 线程执行中的事件,设置进度条当前进度  
+        /// 但是我不能直接操作进度条,需要一个委托来替我完成  
+        /// </summary>  
+        /// <param name="sender">ThreadMethod函数中传过来的当前值</param>  
+        /// <param name="e"></param>  
+        void method_threadEvent(object sender, EventArgs e)
+        {
+            int nowValue = Convert.ToInt32(sender);
+            nowValueDelegate now = new nowValueDelegate(setNow);
+            this.Invoke(now, nowValue);
+        }
+
+        /// <summary>  
+        /// 线程完成事件  
+        /// </summary>  
+        /// <param name="sender"></param>  
+        /// <param name="e"></param>  
+        void method_threadEndEvent(object sender, EventArgs e)
+        {
+            string keywords = Convert.ToString(sender);
+            outputValueDelegate output = new outputValueDelegate(setKeywords);
+            this.Invoke(output, keywords);
+            MessageBox.Show("执行已经完成!");
+        }
+
+        /// <summary>  
+        /// 我被委托调用,专门设置进度条最大值的  
+        /// </summary>  
+        /// <param name="maxValue"></param>  
+        private void setMax(int maxValue)
+        {
+            this.progressBar1.Maximum = maxValue;
+        }
+
+        /// <summary>  
+        /// 我被委托调用,专门设置进度条当前值的  
+        /// </summary>  
+        /// <param name="nowValue"></param>  
+        private void setNow(int nowValue)
+        {
+            this.progressBar1.Value = nowValue;
+        }
+        /// <summary>  
+        /// 我被委托调用,专门设置关键词文本框当前值的  
+        /// </summary>  
+        /// <param name="keywords"></param>  
+        private void setKeywords(string keywords)
+        {
+            this.outputTextBox.Text = keywords; 
+        }
+
+        private void inputTextBox_TextChanged(object sender, EventArgs e)
+        {
+            inputstr = inputTextBox.Text.ToString().Trim();
+        } 
+ 
+
     }
+
+    //执行数据处理的线程类
+    public class ThreadMethod
+    {
+        /// <summary>  
+        /// 线程开始事件  
+        /// </summary>  
+        public event EventHandler threadStartEvent;
+        /// <summary>  
+        /// 线程执行时事件  
+        /// </summary>  
+        public event EventHandler threadEvent;
+        /// <summary>  
+        /// 线程结束事件  
+        /// </summary>  
+        public event EventHandler threadEndEvent;
+
+        public void runMethod()
+        {
+            int count = 350;      //执行多少次  
+            threadStartEvent.Invoke(count, new EventArgs());//通知主界面,我开始了,count用来设置进度条的最大值  
+            string str = Main.inputstr;
+            if (str != "")
+            {
+                //try
+                {
+                    DataProcess.ParagraphProcess(str);
+                    threadEvent.Invoke(50, new EventArgs());//通知主界面我正在执行,数字表示进度条当前进度  
+                    DataProcess.NLPIRProcess();
+                    threadEvent.Invoke(100, new EventArgs());//通知主界面我正在执行,数字表示进度条当前进度  
+                    DataProcess.ClassifyProcess();
+                    threadEvent.Invoke(150, new EventArgs());//通知主界面我正在执行,数字表示进度条当前进度  
+                    DataProcess.LevelProcess();
+                    threadEvent.Invoke(200, new EventArgs());//通知主界面我正在执行,数字表示进度条当前进度  
+                    DataProcess.FSProcess();
+                    threadEvent.Invoke(250, new EventArgs());//通知主界面我正在执行,数字表示进度条当前进度  
+                    DataProcess.CRFSProcess("modelc");
+                    threadEvent.Invoke(300, new EventArgs());//通知主界面我正在执行,数字表示进度条当前进度
+                    ArrayList keyWords = DataProcess.GetKeyWords();
+                    string keywords = "";
+                    for (int i = 0; i < keyWords.Count; i++)
+                    {
+                        keywords += keyWords[i].ToString() + ";";
+                        threadEvent.Invoke(300 + (Convert.ToDouble(i) / keyWords.Count)*50, new EventArgs());//通知主界面我正在执行,数字表示进度条当前进度
+                    }
+
+                    threadEndEvent.Invoke(keywords, new EventArgs());//通知主界面我已经完成了           
+                }
+                //catch (Exception f)
+                {
+                //    MessageBox.Show(f.StackTrace);
+                }
+            }
+        }
+    }  
 }
