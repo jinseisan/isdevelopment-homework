@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.功能ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
@@ -57,11 +58,31 @@
             this.button1 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.pagePanel = new System.Windows.Forms.Panel();
+            this.bindingNavigator1 = new System.Windows.Forms.BindingNavigator(this.components);
+            this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
+            this.pageSizeComboBox = new System.Windows.Forms.ToolStripComboBox();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.MoveFirstPageItem = new System.Windows.Forms.ToolStripButton();
+            this.MovePreviousPageItem = new System.Windows.Forms.ToolStripButton();
+            this.bindingNavigatorSeparator = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripLabel2 = new System.Windows.Forms.ToolStripLabel();
+            this.currentPageNumBox = new System.Windows.Forms.ToolStripTextBox();
+            this.toolStripLabel3 = new System.Windows.Forms.ToolStripLabel();
+            this.bindingNavigatorSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.MoveNextPageItem = new System.Windows.Forms.ToolStripButton();
+            this.MoveLastPageItem = new System.Windows.Forms.ToolStripButton();
+            this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.pageInfoLabel = new System.Windows.Forms.ToolStripLabel();
+            this.goToPositionLabel = new System.Windows.Forms.ToolStripLabel();
+            this.toolStripLabel4 = new System.Windows.Forms.ToolStripLabel();
+            this.inputPosBox = new System.Windows.Forms.ToolStripTextBox();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.searchButton = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.searchInputBox = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.dateTimer = new System.Windows.Forms.Timer(this.components);
             this.menuStrip1.SuspendLayout();
@@ -69,6 +90,9 @@
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
+            this.pagePanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingNavigator1)).BeginInit();
+            this.bindingNavigator1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -164,7 +188,7 @@
             // operStatusLabel
             // 
             this.operStatusLabel.Name = "operStatusLabel";
-            this.operStatusLabel.Size = new System.Drawing.Size(222, 17);
+            this.operStatusLabel.Size = new System.Drawing.Size(237, 17);
             this.operStatusLabel.Spring = true;
             this.operStatusLabel.Text = "tabPageStatus";
             // 
@@ -176,7 +200,7 @@
             // timeStatusLable
             // 
             this.timeStatusLable.Name = "timeStatusLable";
-            this.timeStatusLable.Size = new System.Drawing.Size(222, 17);
+            this.timeStatusLable.Size = new System.Drawing.Size(237, 17);
             this.timeStatusLable.Spring = true;
             this.timeStatusLable.Text = "timeStatus";
             // 
@@ -269,7 +293,6 @@
             this.inputTextBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.inputTextBox.Size = new System.Drawing.Size(617, 155);
             this.inputTextBox.TabIndex = 7;
-            this.inputTextBox.TextChanged += new System.EventHandler(this.inputTextBox_TextChanged);
             // 
             // inputSaveButton
             // 
@@ -338,11 +361,12 @@
             // tabPage2
             // 
             this.tabPage2.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.tabPage2.Controls.Add(this.pagePanel);
             this.tabPage2.Controls.Add(this.textBox2);
             this.tabPage2.Controls.Add(this.label4);
             this.tabPage2.Controls.Add(this.dataGridView1);
             this.tabPage2.Controls.Add(this.searchButton);
-            this.tabPage2.Controls.Add(this.textBox1);
+            this.tabPage2.Controls.Add(this.searchInputBox);
             this.tabPage2.Controls.Add(this.label3);
             this.tabPage2.Location = new System.Drawing.Point(4, 24);
             this.tabPage2.Name = "tabPage2";
@@ -351,26 +375,211 @@
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "文献信息";
             // 
+            // pagePanel
+            // 
+            this.pagePanel.Controls.Add(this.bindingNavigator1);
+            this.pagePanel.Location = new System.Drawing.Point(17, 323);
+            this.pagePanel.Name = "pagePanel";
+            this.pagePanel.Size = new System.Drawing.Size(650, 32);
+            this.pagePanel.TabIndex = 6;
+            // 
+            // bindingNavigator1
+            // 
+            this.bindingNavigator1.AddNewItem = null;
+            this.bindingNavigator1.CountItem = null;
+            this.bindingNavigator1.DeleteItem = null;
+            this.bindingNavigator1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripLabel1,
+            this.pageSizeComboBox,
+            this.toolStripSeparator1,
+            this.MoveFirstPageItem,
+            this.MovePreviousPageItem,
+            this.bindingNavigatorSeparator,
+            this.toolStripLabel2,
+            this.currentPageNumBox,
+            this.toolStripLabel3,
+            this.bindingNavigatorSeparator1,
+            this.MoveNextPageItem,
+            this.MoveLastPageItem,
+            this.bindingNavigatorSeparator2,
+            this.pageInfoLabel,
+            this.goToPositionLabel,
+            this.toolStripLabel4,
+            this.inputPosBox,
+            this.toolStripSeparator2});
+            this.bindingNavigator1.Location = new System.Drawing.Point(0, 0);
+            this.bindingNavigator1.MoveFirstItem = null;
+            this.bindingNavigator1.MoveLastItem = null;
+            this.bindingNavigator1.MoveNextItem = null;
+            this.bindingNavigator1.MovePreviousItem = null;
+            this.bindingNavigator1.Name = "bindingNavigator1";
+            this.bindingNavigator1.PositionItem = null;
+            this.bindingNavigator1.Size = new System.Drawing.Size(650, 25);
+            this.bindingNavigator1.TabIndex = 0;
+            this.bindingNavigator1.Text = "bindingNavigator1";
+            // 
+            // toolStripLabel1
+            // 
+            this.toolStripLabel1.Name = "toolStripLabel1";
+            this.toolStripLabel1.Size = new System.Drawing.Size(56, 22);
+            this.toolStripLabel1.Text = "每页显示";
+            // 
+            // pageSizeComboBox
+            // 
+            this.pageSizeComboBox.Items.AddRange(new object[] {
+            "10",
+            "50",
+            "100"});
+            this.pageSizeComboBox.Name = "pageSizeComboBox";
+            this.pageSizeComboBox.Size = new System.Drawing.Size(75, 25);
+            this.pageSizeComboBox.ToolTipText = "选择每页显示条目数";
+            this.pageSizeComboBox.SelectedIndexChanged += new System.EventHandler(this.pageSizeComboBox_SelectedIndexChanged);
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 25);
+            // 
+            // MoveFirstPageItem
+            // 
+            this.MoveFirstPageItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.MoveFirstPageItem.Image = ((System.Drawing.Image)(resources.GetObject("MoveFirstPageItem.Image")));
+            this.MoveFirstPageItem.Name = "MoveFirstPageItem";
+            this.MoveFirstPageItem.RightToLeftAutoMirrorImage = true;
+            this.MoveFirstPageItem.Size = new System.Drawing.Size(23, 22);
+            this.MoveFirstPageItem.Text = "移到第一条记录";
+            this.MoveFirstPageItem.ToolTipText = "移动到第一页";
+            this.MoveFirstPageItem.Click += new System.EventHandler(this.MoveFirstPageItem_Click);
+            // 
+            // MovePreviousPageItem
+            // 
+            this.MovePreviousPageItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.MovePreviousPageItem.Image = ((System.Drawing.Image)(resources.GetObject("MovePreviousPageItem.Image")));
+            this.MovePreviousPageItem.Name = "MovePreviousPageItem";
+            this.MovePreviousPageItem.RightToLeftAutoMirrorImage = true;
+            this.MovePreviousPageItem.Size = new System.Drawing.Size(23, 22);
+            this.MovePreviousPageItem.Text = "移到上一条记录";
+            this.MovePreviousPageItem.ToolTipText = "移动到上一页";
+            this.MovePreviousPageItem.Click += new System.EventHandler(this.MovePreviousPageItem_Click);
+            // 
+            // bindingNavigatorSeparator
+            // 
+            this.bindingNavigatorSeparator.Name = "bindingNavigatorSeparator";
+            this.bindingNavigatorSeparator.Size = new System.Drawing.Size(6, 25);
+            // 
+            // toolStripLabel2
+            // 
+            this.toolStripLabel2.Name = "toolStripLabel2";
+            this.toolStripLabel2.Size = new System.Drawing.Size(20, 22);
+            this.toolStripLabel2.Text = "第";
+            // 
+            // currentPageNumBox
+            // 
+            this.currentPageNumBox.AccessibleName = "位置";
+            this.currentPageNumBox.AutoSize = false;
+            this.currentPageNumBox.Enabled = false;
+            this.currentPageNumBox.Name = "currentPageNumBox";
+            this.currentPageNumBox.Size = new System.Drawing.Size(45, 23);
+            this.currentPageNumBox.Text = "1";
+            this.currentPageNumBox.ToolTipText = "当前位置";
+            // 
+            // toolStripLabel3
+            // 
+            this.toolStripLabel3.Name = "toolStripLabel3";
+            this.toolStripLabel3.Size = new System.Drawing.Size(20, 22);
+            this.toolStripLabel3.Text = "页";
+            // 
+            // bindingNavigatorSeparator1
+            // 
+            this.bindingNavigatorSeparator1.Name = "bindingNavigatorSeparator1";
+            this.bindingNavigatorSeparator1.Size = new System.Drawing.Size(6, 25);
+            // 
+            // MoveNextPageItem
+            // 
+            this.MoveNextPageItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.MoveNextPageItem.Image = ((System.Drawing.Image)(resources.GetObject("MoveNextPageItem.Image")));
+            this.MoveNextPageItem.Name = "MoveNextPageItem";
+            this.MoveNextPageItem.RightToLeftAutoMirrorImage = true;
+            this.MoveNextPageItem.Size = new System.Drawing.Size(23, 22);
+            this.MoveNextPageItem.Text = "移到下一条记录";
+            this.MoveNextPageItem.ToolTipText = "移动到下一页";
+            this.MoveNextPageItem.Click += new System.EventHandler(this.MoveNextPageItem_Click);
+            // 
+            // MoveLastPageItem
+            // 
+            this.MoveLastPageItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.MoveLastPageItem.Image = ((System.Drawing.Image)(resources.GetObject("MoveLastPageItem.Image")));
+            this.MoveLastPageItem.Name = "MoveLastPageItem";
+            this.MoveLastPageItem.RightToLeftAutoMirrorImage = true;
+            this.MoveLastPageItem.Size = new System.Drawing.Size(23, 22);
+            this.MoveLastPageItem.Text = "移到最后一条记录";
+            this.MoveLastPageItem.ToolTipText = "移动到最后一页";
+            this.MoveLastPageItem.Click += new System.EventHandler(this.MoveLastPageItem_Click);
+            // 
+            // bindingNavigatorSeparator2
+            // 
+            this.bindingNavigatorSeparator2.Name = "bindingNavigatorSeparator2";
+            this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 25);
+            // 
+            // pageInfoLabel
+            // 
+            this.pageInfoLabel.Name = "pageInfoLabel";
+            this.pageInfoLabel.Size = new System.Drawing.Size(122, 22);
+            this.pageInfoLabel.Text = "共{0}页，共{1}条记录";
+            // 
+            // goToPositionLabel
+            // 
+            this.goToPositionLabel.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.goToPositionLabel.IsLink = true;
+            this.goToPositionLabel.Name = "goToPositionLabel";
+            this.goToPositionLabel.Size = new System.Drawing.Size(32, 22);
+            this.goToPositionLabel.Text = "转到";
+            this.goToPositionLabel.ToolTipText = "转到跳转页";
+            this.goToPositionLabel.Click += new System.EventHandler(this.goToPositionLabel_Click);
+            // 
+            // toolStripLabel4
+            // 
+            this.toolStripLabel4.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.toolStripLabel4.Name = "toolStripLabel4";
+            this.toolStripLabel4.Size = new System.Drawing.Size(20, 22);
+            this.toolStripLabel4.Text = "页";
+            // 
+            // inputPosBox
+            // 
+            this.inputPosBox.AccessibleName = "位置";
+            this.inputPosBox.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.inputPosBox.AutoSize = false;
+            this.inputPosBox.Name = "inputPosBox";
+            this.inputPosBox.Size = new System.Drawing.Size(45, 23);
+            this.inputPosBox.Text = "1";
+            this.inputPosBox.ToolTipText = "跳转页数";
+            // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 25);
+            // 
             // textBox2
             // 
             this.textBox2.Font = new System.Drawing.Font("宋体", 10F);
-            this.textBox2.Location = new System.Drawing.Point(46, 410);
+            this.textBox2.Location = new System.Drawing.Point(17, 403);
             this.textBox2.Multiline = true;
             this.textBox2.Name = "textBox2";
             this.textBox2.ReadOnly = true;
             this.textBox2.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textBox2.Size = new System.Drawing.Size(588, 125);
+            this.textBox2.Size = new System.Drawing.Size(650, 125);
             this.textBox2.TabIndex = 5;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("宋体", 15F);
-            this.label4.Location = new System.Drawing.Point(69, 378);
+            this.label4.Location = new System.Drawing.Point(13, 367);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(109, 20);
             this.label4.TabIndex = 4;
-            this.label4.Text = "基本信息：";
+            this.label4.Text = "详细信息：";
             // 
             // dataGridView1
             // 
@@ -378,37 +587,39 @@
             this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(46, 88);
+            this.dataGridView1.Location = new System.Drawing.Point(17, 67);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(588, 272);
+            this.dataGridView1.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            this.dataGridView1.Size = new System.Drawing.Size(650, 252);
             this.dataGridView1.TabIndex = 3;
             this.dataGridView1.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView1_CellMouseClick);
+            this.dataGridView1.RowStateChanged += new System.Windows.Forms.DataGridViewRowStateChangedEventHandler(this.dataGridView1_RowStateChanged);
             // 
             // searchButton
             // 
             this.searchButton.Font = new System.Drawing.Font("宋体", 12F);
-            this.searchButton.Location = new System.Drawing.Point(511, 38);
+            this.searchButton.Location = new System.Drawing.Point(569, 22);
             this.searchButton.Name = "searchButton";
-            this.searchButton.Size = new System.Drawing.Size(75, 24);
+            this.searchButton.Size = new System.Drawing.Size(100, 24);
             this.searchButton.TabIndex = 2;
-            this.searchButton.Text = "搜索";
+            this.searchButton.Text = "检索";
             this.searchButton.UseVisualStyleBackColor = true;
             this.searchButton.Click += new System.EventHandler(this.button3_Click);
             // 
-            // textBox1
+            // searchInputBox
             // 
-            this.textBox1.Font = new System.Drawing.Font("宋体", 12F);
-            this.textBox1.Location = new System.Drawing.Point(172, 38);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(297, 26);
-            this.textBox1.TabIndex = 1;
+            this.searchInputBox.Font = new System.Drawing.Font("宋体", 12F);
+            this.searchInputBox.Location = new System.Drawing.Point(117, 20);
+            this.searchInputBox.Name = "searchInputBox";
+            this.searchInputBox.Size = new System.Drawing.Size(436, 26);
+            this.searchInputBox.TabIndex = 1;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("宋体", 15F);
-            this.label3.Location = new System.Drawing.Point(69, 44);
+            this.label3.Location = new System.Drawing.Point(13, 23);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(109, 20);
             this.label3.TabIndex = 0;
@@ -440,6 +651,11 @@
             this.tabPage1.PerformLayout();
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
+            this.pagePanel.ResumeLayout(false);
+            this.pagePanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingNavigator1)).EndInit();
+            this.bindingNavigator1.ResumeLayout(false);
+            this.bindingNavigator1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -475,7 +691,7 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Button searchButton;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox searchInputBox;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox inputTextBox;
         private System.Windows.Forms.Button clearButton;
@@ -483,6 +699,26 @@
         private System.Windows.Forms.Button outputCopyButton;
         private System.Windows.Forms.Button inputCopyButton;
         private System.Windows.Forms.ToolStripProgressBar progressBar1;
+        private System.Windows.Forms.Panel pagePanel;
+        private System.Windows.Forms.BindingNavigator bindingNavigator1;
+        private System.Windows.Forms.ToolStripLabel toolStripLabel1;
+        private System.Windows.Forms.ToolStripComboBox pageSizeComboBox;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private System.Windows.Forms.ToolStripButton MoveFirstPageItem;
+        private System.Windows.Forms.ToolStripButton MovePreviousPageItem;
+        private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator;
+        private System.Windows.Forms.ToolStripLabel toolStripLabel2;
+        private System.Windows.Forms.ToolStripTextBox currentPageNumBox;
+        private System.Windows.Forms.ToolStripLabel toolStripLabel3;
+        private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator1;
+        private System.Windows.Forms.ToolStripButton MoveNextPageItem;
+        private System.Windows.Forms.ToolStripButton MoveLastPageItem;
+        private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator2;
+        private System.Windows.Forms.ToolStripLabel pageInfoLabel;
+        private System.Windows.Forms.ToolStripTextBox inputPosBox;
+        private System.Windows.Forms.ToolStripLabel toolStripLabel4;
+        private System.Windows.Forms.ToolStripLabel goToPositionLabel;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
     }
 }
 

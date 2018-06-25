@@ -16,9 +16,16 @@ namespace ISFinalProject
 
     public partial class Main : Form
     {
-        public static string inputstr = "";
+        public static string inputstr = "";//传入数据处理最初的字符串，即题名信息字符串
         protected static DataSet savedata = new DataSet();//保存数据库读取的DataSet为临时变量
         protected static Thread processThread ;//数据处理线程对象
+        private int pageSize = 10;//每页显示条目数
+        private int totalCount = 0;//该次检索的总条目数
+        private int currentPage = 1;//当前页号
+        private int pageCount = 1;//总页数
+        private string db_sql = "cssci2014_sql";//sql表名称
+        private string db_ref = "cssci2014_ref";//ref表名称
+
         public Main()
         {
             InitializeComponent();
@@ -26,11 +33,16 @@ namespace ISFinalProject
 
         private void Main_Load(object sender, EventArgs e)
         {
+            //时间状态栏信息初始化
             this.timeStatusLable.Text = "当前时间： " + DateTime.Now.ToLongDateString() + " " + DateTime.Now.ToLongTimeString();
             dateTimer.Start();
             this.operStatusLabel.Text = tabControl1.TabPages[0].Text;
-            button3_Click(null, EventArgs.Empty);
+            //数据处理线程初始化
             Initial_Thread();
+            //初始化每页显示选项框条目
+            this.pageSizeComboBox.SelectedIndex = 0;
+            //数据显示绑定
+            DataBind();
 
         }
         private void Initial_Thread()
@@ -52,17 +64,6 @@ namespace ISFinalProject
             this.progressBar1.Value = 0;
             Initial_Thread();
             processThread.Start();
-            /*
-            try
-            {
-                Initial_Thread();
-                processThread.Start();
-            }
-            catch(Exception f)
-            {
-                MessageBox.Show(f.Message);
-            }*/
-              
         }
 
         private void dateTimer_Tick(object sender, EventArgs e)
@@ -168,27 +169,90 @@ namespace ISFinalProject
        
         private void button3_Click(object sender, EventArgs e)
         {
-            string ti = this.textBox1.Text;
-            savedata =DataAccess.GetTitleByTi(ti);
-            DataTable table = savedata.Tables[0].DefaultView .ToTable (false,new string[]{"来源篇名","来源作者","第一机构","年代卷期","文章类型"});
-            DataView dv = new DataView(table);
-            this.dataGridView1.DataSource =dv;
+            currentPage = 1;
+            DataBind();
+        }
+        //数据绑定
+        private void DataBind()
+        {
+            //判断已有页数
+            if(currentPage == 1)
+            {
+                this.MoveFirstPageItem.Enabled = false;
+                this.MovePreviousPageItem.Enabled = false;
+                this.MoveLastPageItem.Enabled = true;
+                this.MoveNextPageItem.Enabled = true;         
+            }
+            else if (currentPage == pageCount)
+            {
+                this.MoveFirstPageItem.Enabled = true;
+                this.MovePreviousPageItem.Enabled = true;
+                this.MoveLastPageItem.Enabled = false;
+                this.MoveNextPageItem.Enabled = false;
+            }
+            else
+            {
+                this.MoveFirstPageItem.Enabled = true;
+                this.MovePreviousPageItem.Enabled = true;
+                this.MoveLastPageItem.Enabled = true;
+                this.MoveNextPageItem.Enabled = true;
+            }
+            //设置查询条件
+            string ti = this.searchInputBox.Text.Trim();
+            string cond = "";
+            if (ti != "") { cond = "来源篇名 like '%" + ti + "%'"; }
+
+            //查询数据获取和保存
+            savedata = DataAccess.sql_prcPageResult(currentPage, "*", db_sql, cond, "文件序号", 0, "文件序号", pageSize);
+            totalCount = DataAccess.sql_prcRowsCount(db_sql, "*", cond);
+
+            DataTable table = savedata.Tables[0].DefaultView.ToTable(false, new string[] {"文件序号", "来源篇名", "来源作者", "文章类型" });
+            BindingSource bs = new BindingSource();
+            bs.DataSource = table;
+
+            //控件绑定
+            this.dataGridView1.DataSource = bs;
+            this.bindingNavigator1.BindingSource = bs;
+            //dataGridView1参数设置
+            this.dataGridView1.Columns["文件序号"].Visible = false;
+            this.dataGridView1.Columns["来源篇名"].FillWeight = 70;      //第一列的相对宽度为70%
+            this.dataGridView1.Columns["来源作者"].FillWeight = 15;      //第二列的相对宽度为15%
+            this.dataGridView1.Columns["文章类型"].FillWeight = 15;      //第三列的相对宽度为15%
+            this.dataGridView1.RowHeadersWidth = 40 + (currentPage*pageSize).ToString().Length * 5;
+            //控件信息参数设置
+            this.currentPageNumBox.Text = currentPage.ToString();
+            //计算页数
+            if (totalCount % pageSize == 0) { pageCount = totalCount / pageSize; }
+            else { pageCount = totalCount / pageSize + 1; }
+            this.pageInfoLabel.Text = String.Format("共 {0}页；共 {1}条记录",pageCount,totalCount) ;
+            //修改页数相关参数
+            if (pageCount == 1)
+            {
+                this.MoveLastPageItem.Enabled = false;
+                this.MoveNextPageItem.Enabled = false;
+            }
         }
 
-        private void dataGridView1_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        private void refreshInfo()
         {
-            string otherinfo="";
-            if (e.RowIndex >= 0)
+            string otherinfo = "";
+            if (this.dataGridView1.SelectedCells.Count > 1) return;
+            int index = this.dataGridView1.CurrentCell.RowIndex;
+            if (index >= 0)
             {
-                otherinfo +="文件序号："+ savedata.Tables[0].Rows[e.RowIndex]["文件序号"].ToString ().Trim ()+"\r\n";
-                otherinfo += "英文篇名：" + savedata.Tables[0].Rows[e.RowIndex]["英文篇名"].ToString().Trim() + "\r\n";
-                otherinfo += "来源作者：" + savedata.Tables[0].Rows[e.RowIndex]["来源作者"].ToString().Trim() + "\r\n";
-                otherinfo +="期刊："+ savedata.Tables[0].Rows[e.RowIndex]["期刊"].ToString().Trim() + "\n";
-                otherinfo +="机构名称："+ savedata.Tables[0].Rows[e.RowIndex]["机构名称"].ToString().Trim() + "\r\n";
-                otherinfo += "学科分类：" + savedata.Tables[0].Rows[e.RowIndex]["学科分类"].ToString().Trim() + "\r\n";
-                otherinfo +="第一作者："+ savedata.Tables[0].Rows[e.RowIndex]["第一作者"].ToString().Trim() + "\r\n";
-                otherinfo += "中图类号：" + savedata.Tables[0].Rows[e.RowIndex]["中图类号"].ToString().Trim() + "\r\n";
-                otherinfo += "关键词：" + savedata.Tables[0].Rows[e.RowIndex]["关键词"].ToString().Trim().Replace('/', ';') + "\r\n";
+                otherinfo += "文件序号：" + savedata.Tables[0].Rows[index]["文件序号"].ToString().Trim() + "\r\n";
+                otherinfo += "中文篇名：" + savedata.Tables[0].Rows[index]["来源篇名"].ToString().Trim() + "\r\n";
+                otherinfo += "英文篇名：" + savedata.Tables[0].Rows[index]["英文篇名"].ToString().Trim() + "\r\n";
+                otherinfo += "来源作者：" + savedata.Tables[0].Rows[index]["来源作者"].ToString().Trim() + "\r\n";
+                otherinfo += "文章类型：" + savedata.Tables[0].Rows[index]["文章类型"].ToString().Trim() + "\r\n";
+                otherinfo += "期刊：" + savedata.Tables[0].Rows[index]["期刊"].ToString().Trim() + "\n";
+                otherinfo += "第一机构：" + savedata.Tables[0].Rows[index]["第一机构"].ToString().Trim() + "\r\n";
+                otherinfo += "机构名称：" + savedata.Tables[0].Rows[index]["机构名称"].ToString().Trim() + "\r\n";
+                otherinfo += "学科分类：" + savedata.Tables[0].Rows[index]["学科分类"].ToString().Trim() + "\r\n";
+                otherinfo += "第一作者：" + savedata.Tables[0].Rows[index]["第一作者"].ToString().Trim() + "\r\n";
+                otherinfo += "中图类号：" + savedata.Tables[0].Rows[index]["中图类号"].ToString().Trim() + "\r\n";
+                otherinfo += "年代卷期：" + savedata.Tables[0].Rows[index]["年代卷期"].ToString().Trim() + "\r\n";
+                otherinfo += "关键词：" + savedata.Tables[0].Rows[index]["关键词"].ToString().Trim().Replace('/', ';') + "\r\n";
                 this.textBox2.Text = otherinfo;
             }
         }
@@ -267,66 +331,103 @@ namespace ISFinalProject
             this.outputTextBox.Text = keywords; 
         }
 
-        private void inputTextBox_TextChanged(object sender, EventArgs e)
+        private void dataGridView1_RowStateChanged(object sender, DataGridViewRowStateChangedEventArgs e)
         {
-            inputstr = inputTextBox.Text.ToString().Trim();
-        } 
- 
-
-    }
-
-    //执行数据处理的线程类
-    public class ThreadMethod
-    {
-        /// <summary>  
-        /// 线程开始事件  
-        /// </summary>  
-        public event EventHandler threadStartEvent;
-        /// <summary>  
-        /// 线程执行时事件  
-        /// </summary>  
-        public event EventHandler threadEvent;
-        /// <summary>  
-        /// 线程结束事件  
-        /// </summary>  
-        public event EventHandler threadEndEvent;
-
-        public void runMethod()
-        {
-            int count = 350;      //执行多少次  
-            threadStartEvent.Invoke(count, new EventArgs());//通知主界面,我开始了,count用来设置进度条的最大值  
-            string str = Main.inputstr;
-            if (str != "")
+            //显示在HeaderCell上
+            for (int i = 0; i < this.dataGridView1.Rows.Count; i++)
             {
-                //try
-                {
-                    DataProcess.ParagraphProcess(str);
-                    threadEvent.Invoke(50, new EventArgs());//通知主界面我正在执行,数字表示进度条当前进度  
-                    DataProcess.NLPIRProcess();
-                    threadEvent.Invoke(100, new EventArgs());//通知主界面我正在执行,数字表示进度条当前进度  
-                    DataProcess.ClassifyProcess();
-                    threadEvent.Invoke(150, new EventArgs());//通知主界面我正在执行,数字表示进度条当前进度  
-                    DataProcess.LevelProcess();
-                    threadEvent.Invoke(200, new EventArgs());//通知主界面我正在执行,数字表示进度条当前进度  
-                    DataProcess.FSProcess();
-                    threadEvent.Invoke(250, new EventArgs());//通知主界面我正在执行,数字表示进度条当前进度  
-                    DataProcess.CRFSProcess("modelc");
-                    threadEvent.Invoke(300, new EventArgs());//通知主界面我正在执行,数字表示进度条当前进度
-                    ArrayList keyWords = DataProcess.GetKeyWords();
-                    string keywords = "";
-                    for (int i = 0; i < keyWords.Count; i++)
-                    {
-                        keywords += keyWords[i].ToString() + ";";
-                        threadEvent.Invoke(300 + (Convert.ToDouble(i) / keyWords.Count)*50, new EventArgs());//通知主界面我正在执行,数字表示进度条当前进度
-                    }
+                DataGridViewRow r = this.dataGridView1.Rows[i];
+                r.HeaderCell.Value = string.Format("{0}", (currentPage - 1) * pageSize + i + 1);
+            }
+            this.dataGridView1.Refresh();
+        }
 
-                    threadEndEvent.Invoke(keywords, new EventArgs());//通知主界面我已经完成了           
-                }
-                //catch (Exception f)
+        private void pageSizeComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int oldSize = pageSize;//之前的页面设置
+            int rowCount = (currentPage - 1) * oldSize + 1;//选中行的行数（默认第1行）
+            int row = 1;//选中行在该页的行数（默认第一行）
+            pageSize = Convert.ToInt32(this.pageSizeComboBox.SelectedItem.ToString());
+            //自动跳转到更改每页显示数后的页数和记录
+            if (this.dataGridView1.SelectedCells.Count == 1)
+            {
+                rowCount += this.dataGridView1.CurrentCell.RowIndex;
+            }
+            if (rowCount % pageSize == 0) 
+            { 
+                currentPage = rowCount / pageSize;
+                row = pageSize;
+            }
+            else
+            {
+                if (rowCount <= pageSize)
                 {
-                //    MessageBox.Show(f.StackTrace);
+                    currentPage = 1;
+                    row = rowCount;
+                }
+                else
+                {
+                    currentPage = rowCount / pageSize + 1;
+                    row = rowCount % pageSize;
                 }
             }
+            DataBind();
+            this.dataGridView1.CurrentCell = this.dataGridView1.Rows[row - 1].Cells[1];
+            this.searchInputBox.Focus();
         }
-    }  
+        
+        private void MoveFirstPageItem_Click(object sender, EventArgs e)
+        {
+            currentPage = 1;
+            DataBind();
+        }
+
+        private void MovePreviousPageItem_Click(object sender, EventArgs e)
+        {
+            currentPage--;
+            DataBind();
+        }
+
+        private void MoveNextPageItem_Click(object sender, EventArgs e)
+        {            
+            currentPage++;
+            DataBind();
+        }
+
+        private void MoveLastPageItem_Click(object sender, EventArgs e)
+        {
+            currentPage = pageCount;
+            DataBind();
+        }
+
+        private void goToPositionLabel_Click(object sender, EventArgs e)
+        {
+            string pos_str = this.inputPosBox.Text.ToString().Trim();
+            if (pos_str == "") return;
+            int pos = Convert.ToInt32(pos_str);
+            //检查输入数字大小是否越界
+            if(pos < 1)
+            {
+                pos = 1;//自动转到首页
+            }
+            else if (pos > pageCount)
+            {
+                pos = pageCount;//自动转到尾页
+            }
+            this.inputPosBox.Text = pos.ToString();
+            currentPage = pos;
+            DataBind();
+
+        }
+
+        private void dataGridView1_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            refreshInfo();
+        }
+
+
+
+
+
+    } 
 }

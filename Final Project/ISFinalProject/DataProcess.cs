@@ -695,18 +695,5 @@ namespace ISFinalProject
             return result;
         }
 
-        //数据库连接测试
-        public static string MainProcess()
-        {
-            string title_str = "";
-
-            DataSet ds =  DataAccess.GetTitleById("'11A0012014010001'");
-            for (int i = 0; i < ds.Tables[0].Rows.Count; i++)
-            {
-                title_str += ds.Tables[0].Rows[i]["篇名"].ToString().Trim() + "\n";
-            }
-            return title_str;
-        }
-
     }
 }
