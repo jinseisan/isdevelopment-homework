@@ -13,12 +13,41 @@ namespace ISFinalProject
     class DataAccess
     {
        // public static DataSet savedata=new DataSet ();
+        //连接字符串设定
+        public static string DataSource = ConfigurationManager.AppSettings["DataSource"].ToString();
+        public static string InitialCatalog = ConfigurationManager.AppSettings["InitialCatalog"].ToString();
+        public static string UserID = ConfigurationManager.AppSettings["UserID"].ToString();
+        public static string Password = ConfigurationManager.AppSettings["Password"].ToString();
         //连接字符串
-        public static string connstr = ConfigurationManager.AppSettings["ConnectionString"].ToString();
+        public static string ConnectionString = "Data Source=" + DataSource + ";Initial Catalog=" + InitialCatalog 
+                                              + ";User ID=" + UserID + ";Password=" + Password;
 
         //连接对象
-        public static SqlConnection Connection = new SqlConnection(connstr);
+        public static SqlConnection Connection = new SqlConnection(ConnectionString);
 
+        //初始化默认字符串
+        public static void initial_SQL()
+        {
+            DataSource = ConfigurationManager.AppSettings["DataSource"].ToString();
+            InitialCatalog = ConfigurationManager.AppSettings["InitialCatalog"].ToString();
+            UserID = ConfigurationManager.AppSettings["UserID"].ToString();
+            Password = ConfigurationManager.AppSettings["Password"].ToString();
+            ConnectionString = "Data Source=" + DataSource + ";Initial Catalog=" + InitialCatalog 
+                             + ";User ID=" + UserID + ";Password=" + Password;
+            CloseConnection();
+            Connection.ConnectionString = ConnectionString;
+        }
+        public static void set_SQL(string DS, string IC, string UID, string PSW)
+        {
+            DataSource = DS;
+            InitialCatalog = IC;
+            UserID = UID;
+            Password = PSW;
+            ConnectionString = "Data Source=" + DataSource + ";Initial Catalog=" + InitialCatalog
+                             + ";User ID=" + UserID + ";Password=" + Password;
+            CloseConnection();
+            Connection.ConnectionString = ConnectionString;
+        }
         //打开连接
         public static void OpenConnection()
         {

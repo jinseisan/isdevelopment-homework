@@ -10,25 +10,27 @@ using System.Windows.Forms;
 using System.IO;
 using System.Collections;
 using System.Threading;
+using System.Configuration;
 
 namespace ISFinalProject
 {
 
     public partial class Main : Form
     {
-        public static string inputstr = "";//传入数据处理最初的字符串，即题名信息字符串
         protected static DataSet savedata = new DataSet();//保存数据库读取的DataSet为临时变量
         protected static Thread processThread ;//数据处理线程对象
         private int pageSize = 10;//每页显示条目数
         private int totalCount = 0;//该次检索的总条目数
         private int currentPage = 1;//当前页号
         private int pageCount = 1;//总页数
-        private string db_sql = "cssci2014_sql";//sql表名称
-        private string db_ref = "cssci2014_ref";//ref表名称
+        private string db_sql = ConfigurationManager.AppSettings["Table_SQL"].ToString();//sql表名称
+        //private string db_ref = "cssci2014_ref";//ref表名称
+        
 
         public Main()
         {
             InitializeComponent();
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen; 
         }
 
         private void Main_Load(object sender, EventArgs e)
@@ -41,8 +43,21 @@ namespace ISFinalProject
             Initial_Thread();
             //初始化每页显示选项框条目
             this.pageSizeComboBox.SelectedIndex = 0;
-            //数据显示绑定
-            DataBind();
+            //数据哭连接信息显示
+            initial_SQLInfo();
+        }
+        //ConnectString信息初始化
+        private void initial_SQLInfo()
+        {
+            SQLDataSourceBox.Text = DataAccess.DataSource;
+            SQLInitialCatalogBox.Text = DataAccess.InitialCatalog;
+            SQLUserIDBox.Text = DataAccess.UserID;
+            SQLPasswordBox.Text = DataAccess.Password;
+
+            SQLDataSourceBox.Enabled = false;
+            SQLInitialCatalogBox.Enabled = false;
+            SQLUserIDBox.Enabled = false;
+            SQLPasswordBox.Enabled = false;
 
         }
         private void Initial_Thread()
@@ -55,6 +70,16 @@ namespace ISFinalProject
             method.threadStartEvent += new EventHandler(method_threadStartEvent);
             method.threadEvent += new EventHandler(method_threadEvent);
             method.threadEndEvent += new EventHandler(method_threadEndEvent);
+
+            if(this.modelcButton.Checked)
+            {
+                method.set_model("modelc");
+            }
+            else
+            {
+                method.set_model("modelg");
+            }
+            method.set_processString(this.inputTextBox.Text.ToString().Trim());
 
             processThread = new Thread(new ThreadStart(method.runMethod));
         }
@@ -419,15 +444,58 @@ namespace ISFinalProject
             DataBind();
 
         }
-
         private void dataGridView1_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             refreshInfo();
         }
 
+        private void SQLConnectButton_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string DS = SQLDataSourceBox.Text.ToString().Trim();
+                string IC = SQLInitialCatalogBox.Text.ToString().Trim();
+                string UID = SQLUserIDBox.Text.ToString().Trim();
+                string PSW = SQLPasswordBox.Text.ToString().Trim();
+                if(DS == "" || IC == "" || UID == "" || PSW == "")
+                {
+                    MessageBox.Show("输入不完整，请输入完整数据库连接信息！", "警告", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+                DataAccess.set_SQL(DS,IC,UID,PSW);
+                initial_SQLInfo();
+                DataBind();
+                searchButton.Enabled = true;
+                MessageBox.Show("数据库连接成功", "成功！", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch(Exception f)
+            {
+                SQLDataSourceBox.Enabled = true;
+                SQLInitialCatalogBox.Enabled = true;
+                SQLUserIDBox.Enabled = true;
+                SQLPasswordBox.Enabled = true;
+                MessageBox.Show(f.Message, "数据库连接出错！", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
 
+        private void SQLDefaultButton_Click(object sender, EventArgs e)
+        {
+            DataAccess.initial_SQL();
+            initial_SQLInfo();
+        }
 
+        private void SQLModifyButton_Click(object sender, EventArgs e)
+        {
+            SQLDataSourceBox.Enabled = true;
+            SQLInitialCatalogBox.Enabled = true;
+            SQLUserIDBox.Enabled = true;
+            SQLPasswordBox.Enabled = true;
+        }
 
-
+        private void helpButton_Click(object sender, EventArgs e)
+        {
+            string info = "编译时间：" + System.IO.File.GetLastWriteTime(this.GetType().Assembly.Location).ToString() + "\n作者：达婧玮、高清琪、牟星宇";
+            MessageBox.Show(info, "关于", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
     } 
 }

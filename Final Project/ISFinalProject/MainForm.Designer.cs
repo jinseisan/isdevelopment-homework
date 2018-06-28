@@ -30,22 +30,16 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.功能ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
-            this.退出ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.编辑ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.复制ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.粘贴ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.剪切ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.帮助ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.operStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.progressBar1 = new System.Windows.Forms.ToolStripProgressBar();
             this.timeStatusLable = new System.Windows.Forms.ToolStripStatusLabel();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.label9 = new System.Windows.Forms.Label();
+            this.modelgButton = new System.Windows.Forms.RadioButton();
+            this.modelcButton = new System.Windows.Forms.RadioButton();
             this.inputCopyButton = new System.Windows.Forms.Button();
             this.outputSaveButton = new System.Windows.Forms.Button();
             this.outputCopyButton = new System.Windows.Forms.Button();
@@ -58,6 +52,18 @@
             this.button1 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.SQLDefaultButton = new System.Windows.Forms.Button();
+            this.SQLConnectButton = new System.Windows.Forms.Button();
+            this.SQLModifyButton = new System.Windows.Forms.Button();
+            this.SQLPasswordBox = new System.Windows.Forms.TextBox();
+            this.SQLInitialCatalogBox = new System.Windows.Forms.TextBox();
+            this.SQLUserIDBox = new System.Windows.Forms.TextBox();
+            this.SQLDataSourceBox = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
             this.pagePanel = new System.Windows.Forms.Panel();
             this.bindingNavigator1 = new System.Windows.Forms.BindingNavigator(this.components);
             this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
@@ -85,93 +91,21 @@
             this.searchInputBox = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.dateTimer = new System.Windows.Forms.Timer(this.components);
-            this.menuStrip1.SuspendLayout();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.helpButton = new System.Windows.Forms.Button();
             this.statusStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.tabPage2.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.pagePanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bindingNavigator1)).BeginInit();
             this.bindingNavigator1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.tabPage3.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // menuStrip1
-            // 
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.功能ToolStripMenuItem,
-            this.编辑ToolStripMenuItem,
-            this.帮助ToolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(692, 25);
-            this.menuStrip1.TabIndex = 0;
-            this.menuStrip1.Text = "menuStrip1";
-            // 
-            // 功能ToolStripMenuItem
-            // 
-            this.功能ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripMenuItem2,
-            this.toolStripMenuItem3,
-            this.退出ToolStripMenuItem});
-            this.功能ToolStripMenuItem.Name = "功能ToolStripMenuItem";
-            this.功能ToolStripMenuItem.Size = new System.Drawing.Size(44, 21);
-            this.功能ToolStripMenuItem.Text = "开始";
-            // 
-            // toolStripMenuItem2
-            // 
-            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(136, 22);
-            this.toolStripMenuItem2.Text = "文本关键词";
-            this.toolStripMenuItem2.Click += new System.EventHandler(this.toolStripMenuItem2_Click);
-            // 
-            // toolStripMenuItem3
-            // 
-            this.toolStripMenuItem3.Name = "toolStripMenuItem3";
-            this.toolStripMenuItem3.Size = new System.Drawing.Size(136, 22);
-            this.toolStripMenuItem3.Text = "文献信息";
-            this.toolStripMenuItem3.Click += new System.EventHandler(this.toolStripMenuItem3_Click);
-            // 
-            // 退出ToolStripMenuItem
-            // 
-            this.退出ToolStripMenuItem.Name = "退出ToolStripMenuItem";
-            this.退出ToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
-            this.退出ToolStripMenuItem.Text = "退出";
-            this.退出ToolStripMenuItem.Click += new System.EventHandler(this.退出ToolStripMenuItem_Click);
-            // 
-            // 编辑ToolStripMenuItem
-            // 
-            this.编辑ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.复制ToolStripMenuItem,
-            this.粘贴ToolStripMenuItem,
-            this.剪切ToolStripMenuItem});
-            this.编辑ToolStripMenuItem.Name = "编辑ToolStripMenuItem";
-            this.编辑ToolStripMenuItem.Size = new System.Drawing.Size(44, 21);
-            this.编辑ToolStripMenuItem.Text = "编辑";
-            // 
-            // 复制ToolStripMenuItem
-            // 
-            this.复制ToolStripMenuItem.Name = "复制ToolStripMenuItem";
-            this.复制ToolStripMenuItem.Size = new System.Drawing.Size(100, 22);
-            this.复制ToolStripMenuItem.Text = "复制";
-            // 
-            // 粘贴ToolStripMenuItem
-            // 
-            this.粘贴ToolStripMenuItem.Name = "粘贴ToolStripMenuItem";
-            this.粘贴ToolStripMenuItem.Size = new System.Drawing.Size(100, 22);
-            this.粘贴ToolStripMenuItem.Text = "粘贴";
-            // 
-            // 剪切ToolStripMenuItem
-            // 
-            this.剪切ToolStripMenuItem.Name = "剪切ToolStripMenuItem";
-            this.剪切ToolStripMenuItem.Size = new System.Drawing.Size(100, 22);
-            this.剪切ToolStripMenuItem.Text = "剪切";
-            // 
-            // 帮助ToolStripMenuItem
-            // 
-            this.帮助ToolStripMenuItem.Name = "帮助ToolStripMenuItem";
-            this.帮助ToolStripMenuItem.Size = new System.Drawing.Size(44, 21);
-            this.帮助ToolStripMenuItem.Text = "帮助";
             // 
             // statusStrip1
             // 
@@ -179,7 +113,7 @@
             this.operStatusLabel,
             this.progressBar1,
             this.timeStatusLable});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 616);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 640);
             this.statusStrip1.Name = "statusStrip1";
             this.statusStrip1.Size = new System.Drawing.Size(692, 22);
             this.statusStrip1.TabIndex = 2;
@@ -208,19 +142,21 @@
             // 
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
+            this.tabControl1.Controls.Add(this.tabPage3);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl1.ItemSize = new System.Drawing.Size(100, 20);
-            this.tabControl1.Location = new System.Drawing.Point(0, 25);
+            this.tabControl1.Location = new System.Drawing.Point(0, 0);
             this.tabControl1.Multiline = true;
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(692, 591);
+            this.tabControl1.Size = new System.Drawing.Size(692, 640);
             this.tabControl1.TabIndex = 0;
             this.tabControl1.SelectedIndexChanged += new System.EventHandler(this.tabControl1_SelectedIndexChanged);
             // 
             // tabPage1
             // 
             this.tabPage1.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.tabPage1.Controls.Add(this.panel2);
             this.tabPage1.Controls.Add(this.inputCopyButton);
             this.tabPage1.Controls.Add(this.outputSaveButton);
             this.tabPage1.Controls.Add(this.outputCopyButton);
@@ -236,14 +172,55 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 24);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(684, 563);
+            this.tabPage1.Size = new System.Drawing.Size(684, 612);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "文本关键词";
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.label9);
+            this.panel2.Controls.Add(this.modelgButton);
+            this.panel2.Controls.Add(this.modelcButton);
+            this.panel2.Location = new System.Drawing.Point(264, 315);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(250, 48);
+            this.panel2.TabIndex = 12;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(12, 19);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(59, 12);
+            this.label9.TabIndex = 2;
+            this.label9.Text = "模式选择:";
+            // 
+            // modelgButton
+            // 
+            this.modelgButton.AutoSize = true;
+            this.modelgButton.Location = new System.Drawing.Point(173, 17);
+            this.modelgButton.Name = "modelgButton";
+            this.modelgButton.Size = new System.Drawing.Size(59, 16);
+            this.modelgButton.TabIndex = 1;
+            this.modelgButton.Text = "modelg";
+            this.modelgButton.UseVisualStyleBackColor = true;
+            // 
+            // modelcButton
+            // 
+            this.modelcButton.AutoSize = true;
+            this.modelcButton.Checked = true;
+            this.modelcButton.Location = new System.Drawing.Point(86, 17);
+            this.modelcButton.Name = "modelcButton";
+            this.modelcButton.Size = new System.Drawing.Size(59, 16);
+            this.modelcButton.TabIndex = 0;
+            this.modelcButton.TabStop = true;
+            this.modelcButton.Text = "modelc";
+            this.modelcButton.UseVisualStyleBackColor = true;
             // 
             // inputCopyButton
             // 
             this.inputCopyButton.Font = new System.Drawing.Font("宋体", 8F);
-            this.inputCopyButton.Location = new System.Drawing.Point(139, 218);
+            this.inputCopyButton.Location = new System.Drawing.Point(127, 315);
             this.inputCopyButton.Name = "inputCopyButton";
             this.inputCopyButton.Size = new System.Drawing.Size(48, 21);
             this.inputCopyButton.TabIndex = 11;
@@ -254,7 +231,7 @@
             // outputSaveButton
             // 
             this.outputSaveButton.Font = new System.Drawing.Font("宋体", 8F);
-            this.outputSaveButton.Location = new System.Drawing.Point(31, 512);
+            this.outputSaveButton.Location = new System.Drawing.Point(19, 560);
             this.outputSaveButton.Name = "outputSaveButton";
             this.outputSaveButton.Size = new System.Drawing.Size(48, 21);
             this.outputSaveButton.TabIndex = 10;
@@ -265,7 +242,7 @@
             // outputCopyButton
             // 
             this.outputCopyButton.Font = new System.Drawing.Font("宋体", 8F);
-            this.outputCopyButton.Location = new System.Drawing.Point(85, 512);
+            this.outputCopyButton.Location = new System.Drawing.Point(73, 560);
             this.outputCopyButton.Name = "outputCopyButton";
             this.outputCopyButton.Size = new System.Drawing.Size(48, 21);
             this.outputCopyButton.TabIndex = 9;
@@ -276,7 +253,7 @@
             // clearButton
             // 
             this.clearButton.Font = new System.Drawing.Font("宋体", 8F);
-            this.clearButton.Location = new System.Drawing.Point(193, 218);
+            this.clearButton.Location = new System.Drawing.Point(181, 315);
             this.clearButton.Name = "clearButton";
             this.clearButton.Size = new System.Drawing.Size(48, 21);
             this.clearButton.TabIndex = 8;
@@ -287,17 +264,17 @@
             // inputTextBox
             // 
             this.inputTextBox.Font = new System.Drawing.Font("宋体", 12F);
-            this.inputTextBox.Location = new System.Drawing.Point(31, 57);
+            this.inputTextBox.Location = new System.Drawing.Point(17, 57);
             this.inputTextBox.Multiline = true;
             this.inputTextBox.Name = "inputTextBox";
             this.inputTextBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.inputTextBox.Size = new System.Drawing.Size(617, 155);
+            this.inputTextBox.Size = new System.Drawing.Size(650, 252);
             this.inputTextBox.TabIndex = 7;
             // 
             // inputSaveButton
             // 
             this.inputSaveButton.Font = new System.Drawing.Font("宋体", 8F);
-            this.inputSaveButton.Location = new System.Drawing.Point(85, 218);
+            this.inputSaveButton.Location = new System.Drawing.Point(73, 315);
             this.inputSaveButton.Name = "inputSaveButton";
             this.inputSaveButton.Size = new System.Drawing.Size(48, 21);
             this.inputSaveButton.TabIndex = 6;
@@ -308,7 +285,7 @@
             // inputOpenButton
             // 
             this.inputOpenButton.Font = new System.Drawing.Font("宋体", 8F);
-            this.inputOpenButton.Location = new System.Drawing.Point(31, 218);
+            this.inputOpenButton.Location = new System.Drawing.Point(19, 315);
             this.inputOpenButton.Name = "inputOpenButton";
             this.inputOpenButton.Size = new System.Drawing.Size(48, 21);
             this.inputOpenButton.TabIndex = 5;
@@ -319,30 +296,30 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("宋体", 12F);
-            this.label2.Location = new System.Drawing.Point(28, 324);
+            this.label2.Font = new System.Drawing.Font("宋体", 15F);
+            this.label2.Location = new System.Drawing.Point(13, 354);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(80, 16);
+            this.label2.Size = new System.Drawing.Size(99, 20);
             this.label2.TabIndex = 4;
             this.label2.Text = "提取结果:";
             // 
             // outputTextBox
             // 
             this.outputTextBox.Font = new System.Drawing.Font("宋体", 12F);
-            this.outputTextBox.Location = new System.Drawing.Point(31, 361);
+            this.outputTextBox.Location = new System.Drawing.Point(17, 377);
             this.outputTextBox.Multiline = true;
             this.outputTextBox.Name = "outputTextBox";
             this.outputTextBox.ReadOnly = true;
             this.outputTextBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.outputTextBox.Size = new System.Drawing.Size(617, 145);
+            this.outputTextBox.Size = new System.Drawing.Size(650, 177);
             this.outputTextBox.TabIndex = 3;
             // 
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("宋体", 12F);
-            this.button1.Location = new System.Drawing.Point(255, 275);
+            this.button1.Location = new System.Drawing.Point(557, 328);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(136, 28);
+            this.button1.Size = new System.Drawing.Size(110, 28);
             this.button1.TabIndex = 2;
             this.button1.Text = "提取关键词";
             this.button1.UseVisualStyleBackColor = true;
@@ -351,16 +328,17 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("宋体", 12F);
-            this.label1.Location = new System.Drawing.Point(28, 28);
+            this.label1.Font = new System.Drawing.Font("宋体", 15F);
+            this.label1.Location = new System.Drawing.Point(13, 23);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(80, 16);
+            this.label1.Size = new System.Drawing.Size(109, 20);
             this.label1.TabIndex = 1;
-            this.label1.Text = "引文内容:";
+            this.label1.Text = "引文内容：";
             // 
             // tabPage2
             // 
             this.tabPage2.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.tabPage2.Controls.Add(this.panel1);
             this.tabPage2.Controls.Add(this.pagePanel);
             this.tabPage2.Controls.Add(this.textBox2);
             this.tabPage2.Controls.Add(this.label4);
@@ -371,9 +349,123 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 24);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(684, 563);
+            this.tabPage2.Size = new System.Drawing.Size(684, 612);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "文献信息";
+            // 
+            // panel1
+            // 
+            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.SQLDefaultButton);
+            this.panel1.Controls.Add(this.SQLConnectButton);
+            this.panel1.Controls.Add(this.SQLModifyButton);
+            this.panel1.Controls.Add(this.SQLPasswordBox);
+            this.panel1.Controls.Add(this.SQLInitialCatalogBox);
+            this.panel1.Controls.Add(this.SQLUserIDBox);
+            this.panel1.Controls.Add(this.SQLDataSourceBox);
+            this.panel1.Controls.Add(this.label8);
+            this.panel1.Controls.Add(this.label7);
+            this.panel1.Controls.Add(this.label6);
+            this.panel1.Controls.Add(this.label5);
+            this.panel1.Location = new System.Drawing.Point(154, 361);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(513, 68);
+            this.panel1.TabIndex = 7;
+            // 
+            // SQLDefaultButton
+            // 
+            this.SQLDefaultButton.Location = new System.Drawing.Point(414, 5);
+            this.SQLDefaultButton.Name = "SQLDefaultButton";
+            this.SQLDefaultButton.Size = new System.Drawing.Size(42, 23);
+            this.SQLDefaultButton.TabIndex = 10;
+            this.SQLDefaultButton.Text = "默认";
+            this.SQLDefaultButton.UseVisualStyleBackColor = true;
+            this.SQLDefaultButton.Click += new System.EventHandler(this.SQLDefaultButton_Click);
+            // 
+            // SQLConnectButton
+            // 
+            this.SQLConnectButton.Location = new System.Drawing.Point(414, 40);
+            this.SQLConnectButton.Name = "SQLConnectButton";
+            this.SQLConnectButton.Size = new System.Drawing.Size(88, 23);
+            this.SQLConnectButton.TabIndex = 9;
+            this.SQLConnectButton.Text = "连接数据库";
+            this.SQLConnectButton.UseVisualStyleBackColor = true;
+            this.SQLConnectButton.Click += new System.EventHandler(this.SQLConnectButton_Click);
+            // 
+            // SQLModifyButton
+            // 
+            this.SQLModifyButton.Location = new System.Drawing.Point(460, 5);
+            this.SQLModifyButton.Name = "SQLModifyButton";
+            this.SQLModifyButton.Size = new System.Drawing.Size(42, 23);
+            this.SQLModifyButton.TabIndex = 8;
+            this.SQLModifyButton.Text = "修改";
+            this.SQLModifyButton.UseVisualStyleBackColor = true;
+            this.SQLModifyButton.Click += new System.EventHandler(this.SQLModifyButton_Click);
+            // 
+            // SQLPasswordBox
+            // 
+            this.SQLPasswordBox.Location = new System.Drawing.Point(255, 42);
+            this.SQLPasswordBox.Name = "SQLPasswordBox";
+            this.SQLPasswordBox.Size = new System.Drawing.Size(147, 21);
+            this.SQLPasswordBox.TabIndex = 7;
+            this.SQLPasswordBox.UseSystemPasswordChar = true;
+            // 
+            // SQLInitialCatalogBox
+            // 
+            this.SQLInitialCatalogBox.Location = new System.Drawing.Point(51, 42);
+            this.SQLInitialCatalogBox.Name = "SQLInitialCatalogBox";
+            this.SQLInitialCatalogBox.Size = new System.Drawing.Size(147, 21);
+            this.SQLInitialCatalogBox.TabIndex = 6;
+            // 
+            // SQLUserIDBox
+            // 
+            this.SQLUserIDBox.Location = new System.Drawing.Point(255, 7);
+            this.SQLUserIDBox.Name = "SQLUserIDBox";
+            this.SQLUserIDBox.Size = new System.Drawing.Size(147, 21);
+            this.SQLUserIDBox.TabIndex = 5;
+            // 
+            // SQLDataSourceBox
+            // 
+            this.SQLDataSourceBox.Location = new System.Drawing.Point(51, 7);
+            this.SQLDataSourceBox.Name = "SQLDataSourceBox";
+            this.SQLDataSourceBox.Size = new System.Drawing.Size(147, 21);
+            this.SQLDataSourceBox.TabIndex = 4;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(204, 45);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(53, 12);
+            this.label8.TabIndex = 3;
+            this.label8.Text = "密  码：";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(204, 10);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(53, 12);
+            this.label7.TabIndex = 2;
+            this.label7.Text = "账  号：";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(3, 45);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(53, 12);
+            this.label6.TabIndex = 1;
+            this.label6.Text = "数据库：";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(3, 10);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(53, 12);
+            this.label5.TabIndex = 0;
+            this.label5.Text = "服务器：";
             // 
             // pagePanel
             // 
@@ -563,19 +655,19 @@
             // textBox2
             // 
             this.textBox2.Font = new System.Drawing.Font("宋体", 10F);
-            this.textBox2.Location = new System.Drawing.Point(17, 403);
+            this.textBox2.Location = new System.Drawing.Point(17, 435);
             this.textBox2.Multiline = true;
             this.textBox2.Name = "textBox2";
             this.textBox2.ReadOnly = true;
             this.textBox2.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textBox2.Size = new System.Drawing.Size(650, 125);
+            this.textBox2.Size = new System.Drawing.Size(650, 166);
             this.textBox2.TabIndex = 5;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("宋体", 15F);
-            this.label4.Location = new System.Drawing.Point(13, 367);
+            this.label4.Location = new System.Drawing.Point(13, 412);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(109, 20);
             this.label4.TabIndex = 4;
@@ -630,33 +722,69 @@
             this.dateTimer.Interval = 1000;
             this.dateTimer.Tick += new System.EventHandler(this.dateTimer_Tick);
             // 
+            // tabPage3
+            // 
+            this.tabPage3.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.tabPage3.Controls.Add(this.helpButton);
+            this.tabPage3.Controls.Add(this.textBox1);
+            this.tabPage3.Location = new System.Drawing.Point(4, 24);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Size = new System.Drawing.Size(684, 612);
+            this.tabPage3.TabIndex = 2;
+            this.tabPage3.Text = "帮助";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(21, 13);
+            this.textBox1.Multiline = true;
+            this.textBox1.Name = "textBox1";
+            this.textBox1.ReadOnly = true;
+            this.textBox1.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
+            this.textBox1.Size = new System.Drawing.Size(644, 552);
+            this.textBox1.TabIndex = 0;
+            // 
+            // helpButton
+            // 
+            this.helpButton.Font = new System.Drawing.Font("宋体", 10F);
+            this.helpButton.Location = new System.Drawing.Point(300, 571);
+            this.helpButton.Name = "helpButton";
+            this.helpButton.Size = new System.Drawing.Size(70, 28);
+            this.helpButton.TabIndex = 1;
+            this.helpButton.Text = "关于";
+            this.helpButton.UseVisualStyleBackColor = true;
+            this.helpButton.Click += new System.EventHandler(this.helpButton_Click);
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(692, 638);
+            this.ClientSize = new System.Drawing.Size(692, 662);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.statusStrip1);
-            this.Controls.Add(this.menuStrip1);
-            this.MainMenuStrip = this.menuStrip1;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.MaximizeBox = false;
             this.Name = "Main";
-            this.Text = "KeyWords_Main";
+            this.Text = "KeyWordsExtraction";
             this.Load += new System.EventHandler(this.Main_Load);
-            this.menuStrip1.ResumeLayout(false);
-            this.menuStrip1.PerformLayout();
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.pagePanel.ResumeLayout(false);
             this.pagePanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bindingNavigator1)).EndInit();
             this.bindingNavigator1.ResumeLayout(false);
             this.bindingNavigator1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.tabPage3.ResumeLayout(false);
+            this.tabPage3.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -664,12 +792,6 @@
 
         #endregion
 
-        private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem 功能ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem2;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem3;
-        private System.Windows.Forms.ToolStripMenuItem 编辑ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 帮助ToolStripMenuItem;
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPage1;
@@ -681,11 +803,7 @@
         private System.Windows.Forms.ToolStripStatusLabel operStatusLabel;
         private System.Windows.Forms.ToolStripStatusLabel timeStatusLable;
         private System.Windows.Forms.Timer dateTimer;
-        private System.Windows.Forms.ToolStripMenuItem 退出ToolStripMenuItem;
         private System.Windows.Forms.Button inputOpenButton;
-        private System.Windows.Forms.ToolStripMenuItem 复制ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 粘贴ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 剪切ToolStripMenuItem;
         private System.Windows.Forms.Button inputSaveButton;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Label label4;
@@ -719,6 +837,25 @@
         private System.Windows.Forms.ToolStripLabel toolStripLabel4;
         private System.Windows.Forms.ToolStripLabel goToPositionLabel;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox SQLPasswordBox;
+        private System.Windows.Forms.TextBox SQLInitialCatalogBox;
+        private System.Windows.Forms.TextBox SQLUserIDBox;
+        private System.Windows.Forms.TextBox SQLDataSourceBox;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Button SQLConnectButton;
+        private System.Windows.Forms.Button SQLModifyButton;
+        private System.Windows.Forms.Button SQLDefaultButton;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.RadioButton modelgButton;
+        private System.Windows.Forms.RadioButton modelcButton;
+        private System.Windows.Forms.TabPage tabPage3;
+        private System.Windows.Forms.Button helpButton;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }
 
