@@ -90,10 +90,10 @@
             this.searchButton = new System.Windows.Forms.Button();
             this.searchInputBox = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.dateTimer = new System.Windows.Forms.Timer(this.components);
             this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.helpButton = new System.Windows.Forms.Button();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.dateTimer = new System.Windows.Forms.Timer(this.components);
             this.statusStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -122,7 +122,7 @@
             // operStatusLabel
             // 
             this.operStatusLabel.Name = "operStatusLabel";
-            this.operStatusLabel.Size = new System.Drawing.Size(237, 17);
+            this.operStatusLabel.Size = new System.Drawing.Size(222, 17);
             this.operStatusLabel.Spring = true;
             this.operStatusLabel.Text = "tabPageStatus";
             // 
@@ -134,7 +134,7 @@
             // timeStatusLable
             // 
             this.timeStatusLable.Name = "timeStatusLable";
-            this.timeStatusLable.Size = new System.Drawing.Size(237, 17);
+            this.timeStatusLable.Size = new System.Drawing.Size(222, 17);
             this.timeStatusLable.Spring = true;
             this.timeStatusLable.Text = "timeStatus";
             // 
@@ -686,6 +686,7 @@
             this.dataGridView1.Size = new System.Drawing.Size(650, 252);
             this.dataGridView1.TabIndex = 3;
             this.dataGridView1.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView1_CellMouseClick);
+            this.dataGridView1.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView1_CellMouseDoubleClick);
             this.dataGridView1.RowStateChanged += new System.Windows.Forms.DataGridViewRowStateChangedEventHandler(this.dataGridView1_RowStateChanged);
             // 
             // searchButton
@@ -717,11 +718,6 @@
             this.label3.TabIndex = 0;
             this.label3.Text = "题名检索：";
             // 
-            // dateTimer
-            // 
-            this.dateTimer.Interval = 1000;
-            this.dateTimer.Tick += new System.EventHandler(this.dateTimer_Tick);
-            // 
             // tabPage3
             // 
             this.tabPage3.BackColor = System.Drawing.Color.WhiteSmoke;
@@ -733,16 +729,6 @@
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "帮助";
             // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(21, 13);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.ReadOnly = true;
-            this.textBox1.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
-            this.textBox1.Size = new System.Drawing.Size(644, 552);
-            this.textBox1.TabIndex = 0;
-            // 
             // helpButton
             // 
             this.helpButton.Font = new System.Drawing.Font("宋体", 10F);
@@ -753,6 +739,21 @@
             this.helpButton.Text = "关于";
             this.helpButton.UseVisualStyleBackColor = true;
             this.helpButton.Click += new System.EventHandler(this.helpButton_Click);
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(21, 13);
+            this.textBox1.Multiline = true;
+            this.textBox1.Name = "textBox1";
+            this.textBox1.ReadOnly = true;
+            this.textBox1.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
+            this.textBox1.Size = new System.Drawing.Size(644, 552);
+            this.textBox1.TabIndex = 0;
+            // 
+            // dateTimer
+            // 
+            this.dateTimer.Interval = 1000;
+            this.dateTimer.Tick += new System.EventHandler(this.dateTimer_Tick);
             // 
             // Main
             // 

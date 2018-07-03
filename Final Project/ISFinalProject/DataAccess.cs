@@ -158,10 +158,10 @@ namespace ISFinalProject
             return Convert.ToInt32(ds.Tables[0].Rows[0][0]);
         }
         /*
-        //通过序号查找参考文献篇名
+        //通过序号查找来源文献篇名和关键词
         public static DataSet GetTitleById(string id)
         {
-            string SQLstr = @"select 篇名 from cssci2014_ref where 文件序号 =" + id.Trim() + ";";
+            string SQLstr = @"select 来源篇名,关键词 from cssci2014_sql where 文件序号 =" + id.Trim() + ";";
 
             OpenConnection();
             SqlDataAdapter da = new SqlDataAdapter(SQLstr, Connection);
@@ -170,6 +170,8 @@ namespace ISFinalProject
             CloseConnection();
             return ds;
         }
+         */
+        /*
         public static DataSet GetTitleByTi(string ti)
         {
 

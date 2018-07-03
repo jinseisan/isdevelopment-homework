@@ -70,6 +70,7 @@ namespace ISFinalProject
             method.threadStartEvent += new EventHandler(method_threadStartEvent);
             method.threadEvent += new EventHandler(method_threadEvent);
             method.threadEndEvent += new EventHandler(method_threadEndEvent);
+            method.threadStatusEvent += new EventHandler(method_threadStatusEvent);
 
             if(this.modelcButton.Checked)
             {
@@ -225,10 +226,10 @@ namespace ISFinalProject
             //设置查询条件
             string ti = this.searchInputBox.Text.Trim();
             string cond = "";
-            if (ti != "") { cond = "来源篇名 like '%" + ti + "%'"; }
+            if (ti != "") { cond = "来源篇名 like '%" + ti + "%' "; }
 
             //查询数据获取和保存
-            savedata = DataAccess.sql_prcPageResult(currentPage, "*", db_sql, cond, "文件序号", 0, "文件序号", pageSize);
+            savedata = DataAccess.sql_prcPageResult(currentPage, "*", db_sql, cond, "id", 0, "id", pageSize);
             totalCount = DataAccess.sql_prcRowsCount(db_sql, "*", cond);
 
             DataTable table = savedata.Tables[0].DefaultView.ToTable(false, new string[] {"文件序号", "来源篇名", "来源作者", "文章类型" });
@@ -251,8 +252,10 @@ namespace ISFinalProject
             else { pageCount = totalCount / pageSize + 1; }
             this.pageInfoLabel.Text = String.Format("共 {0}页；共 {1}条记录",pageCount,totalCount) ;
             //修改页数相关参数
-            if (pageCount == 1)
+            if (pageCount == 1 || pageCount == 0)
             {
+                this.MoveFirstPageItem.Enabled = false;
+                this.MovePreviousPageItem.Enabled = false;
                 this.MoveLastPageItem.Enabled = false;
                 this.MoveNextPageItem.Enabled = false;
             }
@@ -281,15 +284,22 @@ namespace ISFinalProject
                 this.textBox2.Text = otherinfo;
             }
         }
+        private void dataGridView1_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            ReferenceForm rf = new ReferenceForm(savedata.Tables[0].Rows[e.RowIndex]["文件序号"].ToString().Trim());
+            rf.ShowDialog();
+        }
 
         //ProgressBar相关设定
 
         //线程开始的时候调用的委托  
         private delegate void maxValueDelegate(int maxValue);
-        //线程执行中调用的委托  
+        //线程执行中调用的委托：修改进度条值 
         private delegate void nowValueDelegate(int nowValue);
-        //线程执行中调用的委托  
+        //线程执行中调用的委托：显示抽取的关键词
         private delegate void outputValueDelegate(string keywords);
+        //线程执行中调用的委托：显示状态信息
+        private delegate void nowStatusDelegate(string keywords);
 
         /// <summary>  
         /// 线程开始事件,设置进度条最大值  
@@ -315,6 +325,13 @@ namespace ISFinalProject
             int nowValue = Convert.ToInt32(sender);
             nowValueDelegate now = new nowValueDelegate(setNow);
             this.Invoke(now, nowValue);
+        }
+
+        void method_threadStatusEvent(object sender, EventArgs e)
+        {
+            string nowStatus = Convert.ToString(sender);
+            nowStatusDelegate status = new nowStatusDelegate(setStatusLabel);
+            this.Invoke(status, nowStatus);
         }
 
         /// <summary>  
@@ -354,6 +371,15 @@ namespace ISFinalProject
         private void setKeywords(string keywords)
         {
             this.outputTextBox.Text = keywords; 
+        }
+
+        /// <summary>  
+        /// 我被委托调用,专门设置状态文本框当前值的  
+        /// </summary>  
+        /// <param name="keywords"></param>  
+        private void setStatusLabel(string status)
+        {
+            this.operStatusLabel.Text = status;
         }
 
         private void dataGridView1_RowStateChanged(object sender, DataGridViewRowStateChangedEventArgs e)
@@ -497,5 +523,7 @@ namespace ISFinalProject
             string info = "编译时间：" + System.IO.File.GetLastWriteTime(this.GetType().Assembly.Location).ToString() + "\n作者：达婧玮、高清琪、牟星宇";
             MessageBox.Show(info, "关于", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
+
+        
     } 
 }
