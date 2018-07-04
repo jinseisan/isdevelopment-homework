@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>README</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<style type="text/css">
+/* GitHub stylesheet for MarkdownPad (http://markdownpad.com) */
+/* Author: Nicolas Hery - http://nicolashery.com */
+/* Version: b13fe65ca28d2e568c6ed5d7f06581183df8f2ff */
+/* Source: https://github.com/nicolahery/markdownpad-github */
+
+/* RESET
+=============================================================================*/
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+/* BODY
+=============================================================================*/
+
+body {
+  font-family: Helvetica, arial, freesans, clean, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #333;
+  background-color: #fff;
+  padding: 20px;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+body>*:first-child {
+  margin-top: 0 !important;
+}
+
+body>*:last-child {
+  margin-bottom: 0 !important;
+}
+
+/* BLOCKS
+=============================================================================*/
+
+p, blockquote, ul, ol, dl, table, pre {
+  margin: 15px 0;
+}
+
+/* HEADERS
+=============================================================================*/
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 20px 0 10px;
+  padding: 0;
+  font-weight: bold;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1 tt, h1 code, h2 tt, h2 code, h3 tt, h3 code, h4 tt, h4 code, h5 tt, h5 code, h6 tt, h6 code {
+  font-size: inherit;
+}
+
+h1 {
+  font-size: 28px;
+  color: #000;
+}
+
+h2 {
+  font-size: 24px;
+  border-bottom: 1px solid #ccc;
+  color: #000;
+}
+
+h3 {
+  font-size: 18px;
+}
+
+h4 {
+  font-size: 16px;
+}
+
+h5 {
+  font-size: 14px;
+}
+
+h6 {
+  color: #777;
+  font-size: 14px;
+}
+
+body>h2:first-child, body>h1:first-child, body>h1:first-child+h2, body>h3:first-child, body>h4:first-child, body>h5:first-child, body>h6:first-child {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+h1+p, h2+p, h3+p, h4+p, h5+p, h6+p {
+  margin-top: 10px;
+}
+
+/* LINKS
+=============================================================================*/
+
+a {
+  color: #4183C4;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* LISTS
+=============================================================================*/
+
+ul, ol {
+  padding-left: 30px;
+}
+
+ul li > :first-child, 
+ol li > :first-child, 
+ul li ul:first-of-type, 
+ol li ol:first-of-type, 
+ul li ol:first-of-type, 
+ol li ul:first-of-type {
+  margin-top: 0px;
+}
+
+ul ul, ul ol, ol ol, ol ul {
+  margin-bottom: 0;
+}
+
+dl {
+  padding: 0;
+}
+
+dl dt {
+  font-size: 14px;
+  font-weight: bold;
+  font-style: italic;
+  padding: 0;
+  margin: 15px 0 5px;
+}
+
+dl dt:first-child {
+  padding: 0;
+}
+
+dl dt>:first-child {
+  margin-top: 0px;
+}
+
+dl dt>:last-child {
+  margin-bottom: 0px;
+}
+
+dl dd {
+  margin: 0 0 15px;
+  padding: 0 15px;
+}
+
+dl dd>:first-child {
+  margin-top: 0px;
+}
+
+dl dd>:last-child {
+  margin-bottom: 0px;
+}
+
+/* CODE
+=============================================================================*/
+
+pre, code, tt {
+  font-size: 12px;
+  font-family: Consolas, "Liberation Mono", Courier, monospace;
+}
+
+code, tt {
+  margin: 0 0px;
+  padding: 0px 0px;
+  white-space: nowrap;
+  border: 1px solid #eaeaea;
+  background-color: #f8f8f8;
+  border-radius: 3px;
+}
+
+pre>code {
+  margin: 0;
+  padding: 0;
+  white-space: pre;
+  border: none;
+  background: transparent;
+}
+
+pre {
+  background-color: #f8f8f8;
+  border: 1px solid #ccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px;
+}
+
+pre code, pre tt {
+  background-color: transparent;
+  border: none;
+}
+
+kbd {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background-color: #DDDDDD;
+    background-image: linear-gradient(#F1F1F1, #DDDDDD);
+    background-repeat: repeat-x;
+    border-color: #DDDDDD #CCCCCC #CCCCCC #DDDDDD;
+    border-image: none;
+    border-radius: 2px 2px 2px 2px;
+    border-style: solid;
+    border-width: 1px;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    line-height: 10px;
+    padding: 1px 4px;
+}
+
+/* QUOTES
+=============================================================================*/
+
+blockquote {
+  border-left: 4px solid #DDD;
+  padding: 0 15px;
+  color: #777;
+}
+
+blockquote>:first-child {
+  margin-top: 0px;
+}
+
+blockquote>:last-child {
+  margin-bottom: 0px;
+}
+
+/* HORIZONTAL RULES
+=============================================================================*/
+
+hr {
+  clear: both;
+  margin: 15px 0;
+  height: 0px;
+  overflow: hidden;
+  border: none;
+  background: transparent;
+  border-bottom: 4px solid #ddd;
+  padding: 0;
+}
+
+/* TABLES
+=============================================================================*/
+
+table th {
+  font-weight: bold;
+}
+
+table th, table td {
+  border: 1px solid #ccc;
+  padding: 6px 13px;
+}
+
+table tr {
+  border-top: 1px solid #ccc;
+  background-color: #fff;
+}
+
+table tr:nth-child(2n) {
+  background-color: #f8f8f8;
+}
+
+/* IMAGES
+=============================================================================*/
+
+img {
+  max-width: 100%
+}
+</style>
+<script type="text/javascript">
+document.addEventListener("DOMContentLoaded", function() {
+    // 生成目录列表
+    var outline = document.createElement("ul");
+    outline.setAttribute("id", "outline-list");
+    outline.style.cssText = "border: 1px solid #ccc;";
+    document.body.insertBefore(outline, document.body.childNodes[0]);
+    // 获取所有标题
+    var headers = document.querySelectorAll('h1,h2,h3,h4,h5,h6');
+    for (var i = 0; i < headers.length; i++) {
+        var header = headers[i];
+        var hash = _hashCode(header.textContent);
+        // MarkdownPad2无法为中文header正确生成id，这里生成一个
+        header.setAttribute("id", header.tagName + hash);
+        // 找出它是H几，为后面前置空格准备
+        var prefix = parseInt(header.tagName.replace('H', ''), 10);
+        outline.appendChild(document.createElement("li"));
+        var a = document.createElement("a");
+        // 为目录项设置链接
+        a.setAttribute("href", "#" + header.tagName + hash)
+        // 目录项文本前面放置对应的空格
+        a.innerHTML = new Array(prefix * 4).join('&nbsp;') + header.textContent;
+        outline.lastChild.appendChild(a);
+    }
+ 
+});
+ 
+// 类似Java的hash生成方式，为一段文字生成一段基本不会重复的数字
+function _hashCode(txt) {
+     var hash = 0;
+     if (txt.length == 0) return hash;
+     for (i = 0; i < txt.length; i++) {
+          char = txt.charCodeAt(i);
+          hash = ((hash<<5)-hash)+char;
+          hash = hash & hash; // Convert to 32bit integer
+     }
+     return hash;
+}
+</script>
+</head>
+<body>
+<h1>信息系统开发工具期末大作业</h1>
+<p><strong>达婧玮 151070011<br />
+高清琪 151070014<br />
+牟星宇 151070053</strong></p>
+<h2>一、软件说明</h2>
+<h3>1.1 文件结构</h3>
+<p>　　根目录的<code>/Demo/</code>文件夹即软件存放文件地址，应用程序文件即软件主程序。在软件文件夹下，还有两个重要文件夹：</p>
+<ul>
+<li>
+<code>Resources</code>文件夹： 存放程序运行时会用到的资源文件和与软件相关的重要文件。
+<ul>
+<li><code>CRFS</code>文件夹：在提取关键词过程中最后调用，得到关键词特征。</li>
+<li><code>Database</code>文件夹：本程序连接数据库时需要用到的数据库备份文件，在运行程序连接数据库之前，务必利用该文件夹下的<code>.bak</code>文件还原数据库（SQL Server 2008 R2版本）。</li>
+<li><code>FSWords</code>文件夹：对文本进行FS特征处理时，需要从该文件夹下的文本文件提取字符串，比较获得特征。</li>
+<li><code>ICTCLAS</code>文件夹：提供NLPIR工具接口调用，用于对题名文本进行分词处理。</li>
+<li><code>Models</code>文件夹：存放关键词提取的模型文件，学姐提供了<code>modelc</code>和<code>modelg</code>两个模型。由于模型文件较大，在VS项目中的相应文件夹中没有放入模型文件，在调试时需要提前将模型放入相应文件夹。</li>
+<li><code>Test</code>文件夹：存放了用于测试关键词抽取的两题名文本文件，其中<code>test2.txt</code>是数据库表<code>cssci2014_sql</code>将来源篇名提取出来的文本文档，直接处理将比较慢。</li>
+</ul>
+</li>
+<li><code>ProcessingFiles</code>文件夹：存放数据处理的过程文件，方便查看每个过程处理后的结果，也能作为数据处理查错的帮助文档。</li>
+</ul>
+<h3>1.2 软件功能介绍</h3>
+<p>　　该软件实现了三个基础功能：输入文本提取关键词、查看数据库来源文献信息、根据来源文献从其参考文献提取关键词，具体的实现分别在主窗口的“文本关键词”、“文献信息”选项卡和“引文文献信息”窗口（双击“文献信息”选项卡中连接数据库后的某条记录后弹出）中。</p>
+<h4>1.2.1 “文本关键词”选项卡</h4>
+<p>　　从文本框输入题名文本或导入文本文件（可拖入），选择模式（默认<code>modelc</code>模式）后可提取关键词。在底端的进度条和左侧状态栏会显示数据处理进度，处理完毕会弹出提示框，若处理过程有错会报错弹出异常信息。</p>
+<h4>1.2.2 “文献信息”选项卡</h4>
+<p>　　使用该功能前务必保证本地的SQL Server服务器数据库中有<code>cssci2014_sql</code>和<code>cssci2014_ref</code>两张表，为了数据分页查询的唯一性，我们为两张表增添了自增列。其中<code>cssci2014_sql</code>表保存了来源文献的详细信息，<code>cssci2014_ref</code>表保存了来源文献的参考文献信息。 <br />
+　　在有这两站表的前提下，需要注意软件默认的服务器名为<code>(loacl)</code>，数据库名为<code>cssci</code>，登录账号和密码均为<code>test</code>，当然也可以把这两张表保存在其他数据库和使用其他登录名和密码，点击<code>修改</code>可以修改数据库的连接设置，点击<code>默认</code>将会还原数据库的连接设置。  <br />
+　　成功连接数据库后，默认每页10条记录显示，可以自行选择每页10/50/100条显示。可以通过顶部的输入框对题名进行检索，结果将在表中显示。点击表中的某一格，在底部的文本框内将显示该行文件的详细信息。双击表中的某一格，将弹出“引文文献信息”窗口。</p>
+<h4>1.2.3 “引文文献信息”窗口</h4>
+<p>　　“引文文献信息”窗口结构和“文献信息”选项卡类似，在表中显示刚才所选的来源文献的参考文献，由于参考文献信息不充足，某些来源文献并不能从<code>cssci2014_ref</code>表中查到参考文献。点击<code>提取关键词</code>，将从参考文献题名中提取关键词到底部文本框中。可以对比两个文本框内的关键词，获得新的关键词。</p>
+<h2>二、项目说明</h2>
+<h3>2.1 项目文件说明</h3>
+<p>　　为了使程序在最终更容易打包，将主要的文件均放在了<code>/bin/Debug/</code>文件夹下，内容与软件说明中的文件相同。  <br />
+　　另外，<code>/Resources/</code>文件夹中存放了软件图标。</p>
+<h3>2.2 项目框架介绍</h3>
+<p>　　本项目主要由外部数据库、内部两个窗体和支持窗体功能实现的若干类组成：</p>
+<ul>
+<li>
+<code>sql server数据库</code>：
+<ul>
+<li><code>cssci2014_sql</code>表：存放16383条来源文献信息。</li>
+<li><code>cssci2014_ref</code>表：存放16383条参考文献信息。</li>
+</ul>
+</li>
+<li>
+<code>Windows窗体</code>：
+<ul>
+<li><code>MainForm.cs</code>：主界面及相应的事件代码。</li>
+<li><code>ReferenceForm.cs</code>：参考文献信息界面及相应事件代码。</li>
+</ul>
+</li>
+<li><code>DataAccess.cs</code>：数据库连接类，实现打开/关闭数据库连接、执行sql查询语句、调用服务器存储过程等数据库专用操作。</li>
+<li><code>DataProcess.cs</code>：数据处理类，能对从窗体或数据库获得的题名信息进行特征抽取、关键词提取等操作，并将结果保存到过程文件中。</li>
+<li><code>NLPIRTool.cs</code>：NLPIR接口类，用于调用外部NLPIR接口对文本进行分词处理。</li>
+<li><code>Program.cs</code>：应用程序的主入口点。</li>
+<li><code>ThreadMethod.cs</code>：线程委托方法类，提供数据处理过程中线程的委托和处理方法。</li>
+</ul>
+<h3>2.3 关键词抽取处理</h3>
+<p>　　关键词抽取主要依照学姐所给的文件中的处理逻辑，将其用c#的语法整合到了<code>DataProcess</code>类中集中处理。为了便于代码测试和运行的查错，将关键词抽取划分为7个过程:    </p>
+<ul>
+<li>1.<code>ParagraphProcess(this.process_str)</code>：NLPIR分词处理；</li>
+<li>2.<code>NLPIRProcess()</code>：词性和构词特征处理；</li>
+<li>3.<code>ClassifyProcess()</code>：分类特征处理；</li>
+<li>4.<code>LevelProcess()</code>：等级特征处理；</li>
+<li>5.<code>FSProcess()</code>：FS特征处理；</li>
+<li>6.<code>CRFSProcess(string model)</code>：调用模型，提取关键词特征；</li>
+<li>7.<code>GetKeyWords()</code>：从关键词特征抽取相应关键词，返回关键词的<code>ArrayList</code>。</li>
+</ul>
+<p>每一个过程的过程文件保存在<code>/ProcessingFiles</code>文件夹中，便于测试查找问题。以上过程是具体实现进行了一定程度的封装，以下介绍一些核心的方法：</p>
+<h4>2.3.1　<code>ParagraphProcess(string paragraph)</code>方法</h4>
+<p>　　该方法调用<code>NLPIRTool</code>类中NLPIR接口，对传入的文本进行第一步的分词。并对分词后的字符串进行初步处理，如将两个“——”替换为一个“—”等，以使写入后的txt文件符合后续处理要求。</p>
+<h4>2.3.2　<code>NLPIRWordProcess(string input_word)</code>方法</h4>
+<p>　　该方法主要参考了学姐所给的词性和构词特征处理方法的逻辑流程，将词性和构词的处理整合到一起。<br />
+　　在运行过程中，由于分词并不是非常准确，导致有些词和标点没有分离，比如年份之间的<code>-</code>符号，如<code>1922-1923</code>此类分词结果。在此也对部分特殊情况做了处理，但是对于新输入的题名可能会有新的分词问题。具体分情况参考代码。</p>
+<h4>2.3.3　<code>CRFSProcess(string model)</code>方法</h4>
+<p>　　该方法调用了<code>Windows</code>系统的<code>cmd</code>命令行，以实现对CRFS的调用。</p>
+<h4>2.3.4　线程委托实现进度条同步</h4>
+<p>　　线程的委托和数据处理方法由<code>ThreadMethod</code>类实现，在<code>MainForm</code>和<code>ReferenceForm</code>窗体代码中添加具体的委托方法并与线程绑定，实现了进度条的同步和防止了窗口的假死状态。其中因为数据处理的过程函数比进度条实现时间早，进度条只能在每个过程处理完毕后改变进度，而不能在每个过程的每次循环均改变进度。具体实现过程见代码。</p>
+<h3>2.4 数据显示分页</h3>
+<p>　　由于本项目中的两张数据库表都有一万条以上的数据量，显示时如果只有滚动条，将非常不方便查阅和定位，因此需要对数据库数据分页显示。  <br />
+　　为了减小程序运行时内存的使用，我们采用了sql server服务器数据库存储过程来进行分页，主要参考了CSDN中博客（<a href="https://blog.csdn.net/fcrpg2005/article/details/1512707">SQLServer分页查询通用存储过程</a>）来构建数据库的存储过程。另外，原文章中有条件分页的语句有错误，正确的过程可见项目数据库中的<code>prcPageResult</code>存储过程。  <br />
+　　在窗体中，主要通过调用<code>DataAccess</code>的存储过程方法获取某一页的数据，然后将其与<code>DataGridView</code>绑定显示。具体的翻页、每页显示数量、跳转页数等操作，是基于<code>BindingNavigator</code>实现的，具体实现可见代码。</p>
+<h2>三、总结与反思</h2>
+<p>&emsp;&#8195;该软件的目标是要对来源文献的引用文献进行关键词提取，对比提取结果和来源文献原有的关键词，从而研究这两者之间的关系，并希望可以使用该方法得到的关键词可以用作对来源文献原有关键词的补充。软件主要通过外部数据库、内部两个窗体和支持窗体功能实现的若干类实现这些功能。</p>
+<h3>3.1软件的优点</h3>
+<p>&emsp;&#8195;该软件主要有以下几点优点：</br>
+&emsp;&#8195;1 系统用户界面友好，操作简单易懂，使用户能够更方便地使用。</br>
+&emsp;&#8195;2 由于检索和关键词提取过程需要一定的时间，本软件使用进度条分模块实时展示操作进度，让用户可以实时了解操作进度，方便出错时查看。</br></p>
+<h3>3.2软件的不足</h3>
+<p>&emsp;&#8195;由于时间和知识等因素的限制，该软件还存在一些不足：</br>
+&emsp;&#8195;1 软件界面是单调的系统样式，没有色彩搭配，界面美观度较差。</br>
+&emsp;&#8195;2 在文献信息页面，该软件对于采用Gridview展示搜索结果，单击单元格时会显示来源文献的详细信息。但是若在对列进行排序之后再单击，此时显示的信息还是原先位置文献的信息。</br>
+&emsp;&#8195;3 由于数据不完整，在文献信息页面双击文献跳转页面后，有些文献没有参考文献显示。</br></p>
+<h3>3.3反思</h3>
+<p>&emsp;&#8195;本次作业是我们小组第一次合作设计开发Windows应用程序，是对所学课程的一次实践。在合作完成作业的过程中，从最初设计界面到中间不断地发现问题并一遍遍的修改完善发现的问题，到最后对软件的修改完善，我们收获了很多。现总结如下：</br>
+&emsp;&#8195;1 在小组3人的分工合作中，我们相互帮助，不断寻找修正问题，建立了良好的合作氛
+围。我们分工明确，高效完成自己的工作任务。</br>
+&emsp;&#8195;2 在进行任务的过程中，我们不断地发现新的问题并积极的讨论，寻求解决方案。尤其对于项目中最核心的引文关键词提取，我们进行了多次的讨论和修改。</br>
+&emsp;&#8195;3 对于软件存在的一些问题，我们尽力解决，但是还存在一些没有解决的问题。</br></p>
+<h2>四、成员分工及打分</h2>
+<h3>4.1成员分工</h3>
+<p>组长：牟星宇 151070053</br>
+组员：达婧玮 151070011</br>
+&emsp;&#8195;&emsp;高清淇 151070014</br>
+合作：</br>
+&emsp;&#8195;1.共同讨论围绕选题如何进行信息系统设计。</br>
+&emsp;&#8195;2.结合课上所学知识教材、参考书的内容，共同设计软件界面以及功能实现方式。</br>
+&emsp;&#8195;3.小组合作完成文档撰写。</br>
+分工：</br>
+&emsp;&#8195;牟星宇：负责软件界面设计和绘制、团队分工；负责“关键词提取”页面和“引文关键词提取”页面代码实现；负责数据库设计；负责项目说明文档的撰写。</br>
+&emsp;&#8195;达婧玮：负责软件界面设计和绘制；负责“文献信息”页面和“引文关键词提取”页面代码实现；负责软件使用说明和成员分工及打分文档的撰写。</br>
+&emsp;&#8195;高清淇：负责软件界面设计和绘制；负责“文献信息”页面的代码实现。</br></p>
+<h3>4.2小组打分</h3>
+<p>牟星宇（9.9/10）</br>
+达婧玮（9.9/10）</br>
+高清淇（9.9/10）</br></p>
+
+</body>
+</html>
+<!-- This document was created with MarkdownPad, the Markdown editor for Windows (http://markdownpad.com) -->

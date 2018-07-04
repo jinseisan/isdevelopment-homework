@@ -15,7 +15,7 @@ using System.Configuration;
 namespace ISFinalProject
 {
 
-    public partial class Main : Form
+    public partial class MainForm : Form
     {
         protected static DataSet savedata = new DataSet();//保存数据库读取的DataSet为临时变量
         protected static Thread processThread ;//数据处理线程对象
@@ -27,7 +27,7 @@ namespace ISFinalProject
         //private string db_ref = "cssci2014_ref";//ref表名称
         
 
-        public Main()
+        public MainForm()
         {
             InitializeComponent();
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen; 
@@ -41,10 +41,15 @@ namespace ISFinalProject
             this.operStatusLabel.Text = tabControl1.TabPages[0].Text;
             //数据处理线程初始化
             Initial_Thread();
-            //初始化每页显示选项框条目
-            this.pageSizeComboBox.SelectedIndex = 0;
-            //数据哭连接信息显示
+            //数据库连接信息显示
             initial_SQLInfo();
+            //帮助信息初始化
+            initial_help();
+        }
+        //帮助选项卡初始化
+        private void initial_help()
+        {
+            this.richTextBox1.LoadFile("help.rtf");
         }
         //ConnectString信息初始化
         private void initial_SQLInfo()
@@ -60,6 +65,7 @@ namespace ISFinalProject
             SQLPasswordBox.Enabled = false;
 
         }
+        //数据处理线程初始化
         private void Initial_Thread()
         {
             if (processThread==null){}
@@ -83,6 +89,18 @@ namespace ISFinalProject
             method.set_processString(this.inputTextBox.Text.ToString().Trim());
 
             processThread = new Thread(new ThreadStart(method.runMethod));
+        }
+        //翻页界面初始化
+        private void initial_Page()
+        {
+            this.searchButton.Enabled = true;
+            this.pageSizeComboBox.Enabled = true;
+            this.MoveFirstPageItem.Enabled = true;
+            this.MoveLastPageItem.Enabled = true;
+            this.MoveNextPageItem.Enabled = true;
+            this.MovePreviousPageItem.Enabled = true;
+            this.inputPosBox.Enabled = true;
+            this.goToPositionLabel.Enabled = true;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -269,7 +287,7 @@ namespace ISFinalProject
             string fileNum = this.dataGridView1.CurrentCell.OwningRow.Cells[0].Value.ToString();
             for (int i = 0; i < pageSize; i++)
             {
-                if (fileNum == savedata.Tables[0].Rows[i]["文件序号"])
+                if (fileNum == savedata.Tables[0].Rows[i]["文件序号"].ToString())
                 {
                     index = i;
                     break;
@@ -488,6 +506,8 @@ namespace ISFinalProject
         {
             try
             {
+                initial_Page();
+                
                 string DS = SQLDataSourceBox.Text.ToString().Trim();
                 string IC = SQLInitialCatalogBox.Text.ToString().Trim();
                 string UID = SQLUserIDBox.Text.ToString().Trim();
@@ -501,6 +521,8 @@ namespace ISFinalProject
                 initial_SQLInfo();
                 DataBind();
                 searchButton.Enabled = true;
+                this.dataGridView1.Rows[0].Cells[1].Selected = true;
+                this.warnLabel.Visible = false;
                 MessageBox.Show("数据库连接成功", "成功！", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch(Exception f)
@@ -531,6 +553,36 @@ namespace ISFinalProject
         {
             string info = "编译时间：" + System.IO.File.GetLastWriteTime(this.GetType().Assembly.Location).ToString() + "\n作者：达婧玮、高清琪、牟星宇";
             MessageBox.Show(info, "关于", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void inputTextBox_DragEnter(object sender, DragEventArgs e)
+        {
+            if (e.Data.GetDataPresent(DataFormats.FileDrop))
+            {
+                string[] filenames = (string[])e.Data.GetData(DataFormats.FileDrop);
+                int hz = filenames[0].LastIndexOf('.') + 1;
+                string houzhui = filenames[0].Substring(hz);//文件后缀名
+                if (houzhui == "txt")
+                {
+                    e.Effect = DragDropEffects.Link;
+                    this.inputTextBox.Cursor = System.Windows.Forms.Cursors.Arrow;  //指定鼠标形状（更好看）
+                }
+                else
+                {
+                    e.Effect = DragDropEffects.None;
+                }
+            }
+            else
+            {
+                e.Effect = DragDropEffects.None;
+            }
+        }
+
+        private void inputTextBox_DragDrop(object sender, DragEventArgs e)
+        {
+            string path = ((System.Array)e.Data.GetData(DataFormats.FileDrop)).GetValue(0).ToString();
+            StreamReader sr = new StreamReader(path, Encoding.Default);
+            this.inputTextBox.Text = sr.ReadToEnd();
         }
 
         

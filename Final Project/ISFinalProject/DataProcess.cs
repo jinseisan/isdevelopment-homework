@@ -537,7 +537,7 @@ namespace ISFinalProject
             return result;
         }
 
-        //按以下四个过程顺序添加五个特征
+        //按以下六个过程提取关键词
         /*过程1
          * 对NLPIR.txt文件进行词性和构词处理，保存结果到Classify.txt文档中
          */

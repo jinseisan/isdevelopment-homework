@@ -1,13 +1,6 @@
 f:\Visual Studio 2013\Projects\ISFinalProject\ISFinalProject\bin\Debug\ISFinalProject.exe.config
-F:\jinseisan\isdevelopment-homework\Final Project\ISFinalProject\bin\Debug\ISFinalProject.exe.config
-F:\jinseisan\isdevelopment-homework\Final Project\ISFinalProject\bin\Debug\ISFinalProject.exe
-F:\jinseisan\isdevelopment-homework\Final Project\ISFinalProject\bin\Debug\ISFinalProject.pdb
-F:\jinseisan\isdevelopment-homework\Final Project\ISFinalProject\obj\Debug\ISFinalProject.csprojResolveAssemblyReference.cache
 F:\jinseisan\isdevelopment-homework\Final Project\ISFinalProject\obj\Debug\ISFinalProject.Properties.Resources.resources
 F:\jinseisan\isdevelopment-homework\Final Project\ISFinalProject\obj\Debug\ISFinalProject.csproj.GenerateResource.Cache
-F:\jinseisan\isdevelopment-homework\Final Project\ISFinalProject\obj\Debug\ISFinalProject.exe
-F:\jinseisan\isdevelopment-homework\Final Project\ISFinalProject\obj\Debug\ISFinalProject.pdb
-F:\jinseisan\isdevelopment-homework\Final Project\ISFinalProject\obj\Debug\ISFinalProject.Main.resources
 F:\jinseisan\isdevelopment-homework\Final Project\ISFinalProject\obj\Debug\ISFinalProject.ReferenceForm.resources
 D:\学习\大三\大三下\信息系统\大作业\isdevelopment-homework\Final Project\ISFinalProject\bin\Debug\ISFinalProject.exe.config
 D:\学习\大三\大三下\信息系统\大作业\isdevelopment-homework\Final Project\ISFinalProject\obj\Debug\ISFinalProject.exe
@@ -19,3 +12,9 @@ D:\学习\大三\大三下\信息系统\大作业\isdevelopment-homework\Final P
 D:\学习\大三\大三下\信息系统\大作业\isdevelopment-homework\Final Project\ISFinalProject\obj\Debug\ISFinalProject.Properties.Resources.resources
 D:\学习\大三\大三下\信息系统\大作业\isdevelopment-homework\Final Project\ISFinalProject\obj\Debug\ISFinalProject.ReferenceForm.resources
 D:\学习\大三\大三下\信息系统\大作业\isdevelopment-homework\Final Project\ISFinalProject\obj\Debug\ISFinalProject.csproj.GenerateResource.Cache
+F:\jinseisan\isdevelopment-homework\Final Project\ISFinalProject\obj\Debug\ISFinalProject.MainForm.resources
+F:\jinseisan\isdevelopment-homework\Final Project\ISFinalProject\bin\Debug\关键词抽取V1.0.exe.config
+F:\jinseisan\isdevelopment-homework\Final Project\ISFinalProject\bin\Debug\关键词抽取V1.0.exe
+F:\jinseisan\isdevelopment-homework\Final Project\ISFinalProject\bin\Debug\关键词抽取V1.0.pdb
+F:\jinseisan\isdevelopment-homework\Final Project\ISFinalProject\obj\Debug\关键词抽取V1.0.exe
+F:\jinseisan\isdevelopment-homework\Final Project\ISFinalProject\obj\Debug\关键词抽取V1.0.pdb

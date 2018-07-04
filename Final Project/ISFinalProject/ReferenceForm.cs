@@ -249,7 +249,7 @@ namespace ISFinalProject
             string processData = "";
             for (int i = 0; i < savedata.Tables[0].Rows.Count; i++)
             {
-                processData += savedata.Tables[0].Rows[i]["篇名"].ToString().Trim();
+                processData += savedata.Tables[0].Rows[i]["篇名"].ToString().Trim()+'\n';
             }
             Initial_Thread(processData);
             this.progressBar1.Value = 0;

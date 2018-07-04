@@ -1,6 +1,6 @@
 ﻿namespace ISFinalProject
 {
-    partial class Main
+    partial class MainForm
     {
         /// <summary>
         /// 必需的设计器变量。
@@ -29,13 +29,14 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.operStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.progressBar1 = new System.Windows.Forms.ToolStripProgressBar();
             this.timeStatusLable = new System.Windows.Forms.ToolStripStatusLabel();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.label10 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label9 = new System.Windows.Forms.Label();
             this.modelgButton = new System.Windows.Forms.RadioButton();
@@ -52,6 +53,7 @@
             this.button1 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.warnLabel = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.SQLDefaultButton = new System.Windows.Forms.Button();
             this.SQLConnectButton = new System.Windows.Forms.Button();
@@ -92,8 +94,8 @@
             this.label3 = new System.Windows.Forms.Label();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.helpButton = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.dateTimer = new System.Windows.Forms.Timer(this.components);
+            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.statusStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -156,6 +158,7 @@
             // tabPage1
             // 
             this.tabPage1.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.tabPage1.Controls.Add(this.label10);
             this.tabPage1.Controls.Add(this.panel2);
             this.tabPage1.Controls.Add(this.inputCopyButton);
             this.tabPage1.Controls.Add(this.outputSaveButton);
@@ -176,12 +179,22 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "文本关键词";
             // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("宋体", 10F);
+            this.label10.Location = new System.Drawing.Point(103, 29);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(126, 14);
+            this.label10.TabIndex = 13;
+            this.label10.Text = "（可拖入txt文件）";
+            // 
             // panel2
             // 
             this.panel2.Controls.Add(this.label9);
             this.panel2.Controls.Add(this.modelgButton);
             this.panel2.Controls.Add(this.modelcButton);
-            this.panel2.Location = new System.Drawing.Point(264, 315);
+            this.panel2.Location = new System.Drawing.Point(301, 323);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(250, 48);
             this.panel2.TabIndex = 12;
@@ -263,6 +276,7 @@
             // 
             // inputTextBox
             // 
+            this.inputTextBox.AllowDrop = true;
             this.inputTextBox.Font = new System.Drawing.Font("宋体", 12F);
             this.inputTextBox.Location = new System.Drawing.Point(17, 57);
             this.inputTextBox.Multiline = true;
@@ -270,6 +284,8 @@
             this.inputTextBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.inputTextBox.Size = new System.Drawing.Size(650, 252);
             this.inputTextBox.TabIndex = 7;
+            this.inputTextBox.DragDrop += new System.Windows.Forms.DragEventHandler(this.inputTextBox_DragDrop);
+            this.inputTextBox.DragEnter += new System.Windows.Forms.DragEventHandler(this.inputTextBox_DragEnter);
             // 
             // inputSaveButton
             // 
@@ -338,6 +354,7 @@
             // tabPage2
             // 
             this.tabPage2.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.tabPage2.Controls.Add(this.warnLabel);
             this.tabPage2.Controls.Add(this.panel1);
             this.tabPage2.Controls.Add(this.pagePanel);
             this.tabPage2.Controls.Add(this.textBox2);
@@ -352,6 +369,17 @@
             this.tabPage2.Size = new System.Drawing.Size(684, 612);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "文献信息";
+            // 
+            // warnLabel
+            // 
+            this.warnLabel.AutoSize = true;
+            this.warnLabel.Font = new System.Drawing.Font("宋体", 10F, System.Drawing.FontStyle.Bold);
+            this.warnLabel.ForeColor = System.Drawing.Color.Red;
+            this.warnLabel.Location = new System.Drawing.Point(14, 381);
+            this.warnLabel.Name = "warnLabel";
+            this.warnLabel.Size = new System.Drawing.Size(127, 14);
+            this.warnLabel.TabIndex = 8;
+            this.warnLabel.Text = "请先连接数据库！";
             // 
             // panel1
             // 
@@ -518,12 +546,14 @@
             // 
             // pageSizeComboBox
             // 
+            this.pageSizeComboBox.Enabled = false;
             this.pageSizeComboBox.Items.AddRange(new object[] {
             "10",
             "50",
             "100"});
             this.pageSizeComboBox.Name = "pageSizeComboBox";
             this.pageSizeComboBox.Size = new System.Drawing.Size(75, 25);
+            this.pageSizeComboBox.Text = "10";
             this.pageSizeComboBox.ToolTipText = "选择每页显示条目数";
             this.pageSizeComboBox.SelectedIndexChanged += new System.EventHandler(this.pageSizeComboBox_SelectedIndexChanged);
             // 
@@ -535,6 +565,7 @@
             // MoveFirstPageItem
             // 
             this.MoveFirstPageItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.MoveFirstPageItem.Enabled = false;
             this.MoveFirstPageItem.Image = ((System.Drawing.Image)(resources.GetObject("MoveFirstPageItem.Image")));
             this.MoveFirstPageItem.Name = "MoveFirstPageItem";
             this.MoveFirstPageItem.RightToLeftAutoMirrorImage = true;
@@ -546,6 +577,7 @@
             // MovePreviousPageItem
             // 
             this.MovePreviousPageItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.MovePreviousPageItem.Enabled = false;
             this.MovePreviousPageItem.Image = ((System.Drawing.Image)(resources.GetObject("MovePreviousPageItem.Image")));
             this.MovePreviousPageItem.Name = "MovePreviousPageItem";
             this.MovePreviousPageItem.RightToLeftAutoMirrorImage = true;
@@ -589,6 +621,7 @@
             // MoveNextPageItem
             // 
             this.MoveNextPageItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.MoveNextPageItem.Enabled = false;
             this.MoveNextPageItem.Image = ((System.Drawing.Image)(resources.GetObject("MoveNextPageItem.Image")));
             this.MoveNextPageItem.Name = "MoveNextPageItem";
             this.MoveNextPageItem.RightToLeftAutoMirrorImage = true;
@@ -600,6 +633,7 @@
             // MoveLastPageItem
             // 
             this.MoveLastPageItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.MoveLastPageItem.Enabled = false;
             this.MoveLastPageItem.Image = ((System.Drawing.Image)(resources.GetObject("MoveLastPageItem.Image")));
             this.MoveLastPageItem.Name = "MoveLastPageItem";
             this.MoveLastPageItem.RightToLeftAutoMirrorImage = true;
@@ -622,6 +656,7 @@
             // goToPositionLabel
             // 
             this.goToPositionLabel.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.goToPositionLabel.Enabled = false;
             this.goToPositionLabel.IsLink = true;
             this.goToPositionLabel.Name = "goToPositionLabel";
             this.goToPositionLabel.Size = new System.Drawing.Size(32, 22);
@@ -641,6 +676,7 @@
             this.inputPosBox.AccessibleName = "位置";
             this.inputPosBox.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
             this.inputPosBox.AutoSize = false;
+            this.inputPosBox.Enabled = false;
             this.inputPosBox.Name = "inputPosBox";
             this.inputPosBox.Size = new System.Drawing.Size(45, 23);
             this.inputPosBox.Text = "1";
@@ -691,6 +727,7 @@
             // 
             // searchButton
             // 
+            this.searchButton.Enabled = false;
             this.searchButton.Font = new System.Drawing.Font("宋体", 12F);
             this.searchButton.Location = new System.Drawing.Point(569, 22);
             this.searchButton.Name = "searchButton";
@@ -721,8 +758,8 @@
             // tabPage3
             // 
             this.tabPage3.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.tabPage3.Controls.Add(this.richTextBox1);
             this.tabPage3.Controls.Add(this.helpButton);
-            this.tabPage3.Controls.Add(this.textBox1);
             this.tabPage3.Location = new System.Drawing.Point(4, 24);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Size = new System.Drawing.Size(684, 612);
@@ -740,22 +777,21 @@
             this.helpButton.UseVisualStyleBackColor = true;
             this.helpButton.Click += new System.EventHandler(this.helpButton_Click);
             // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(21, 13);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.ReadOnly = true;
-            this.textBox1.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
-            this.textBox1.Size = new System.Drawing.Size(644, 552);
-            this.textBox1.TabIndex = 0;
-            // 
             // dateTimer
             // 
             this.dateTimer.Interval = 1000;
             this.dateTimer.Tick += new System.EventHandler(this.dateTimer_Tick);
             // 
-            // Main
+            // richTextBox1
+            // 
+            this.richTextBox1.Location = new System.Drawing.Point(8, 12);
+            this.richTextBox1.Name = "richTextBox1";
+            this.richTextBox1.ReadOnly = true;
+            this.richTextBox1.Size = new System.Drawing.Size(668, 553);
+            this.richTextBox1.TabIndex = 2;
+            this.richTextBox1.Text = "";
+            // 
+            // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -765,7 +801,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
-            this.Name = "Main";
+            this.Name = "MainForm";
             this.Text = "关键词抽取V1.0";
             this.Load += new System.EventHandler(this.Main_Load);
             this.statusStrip1.ResumeLayout(false);
@@ -786,7 +822,6 @@
             this.bindingNavigator1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.tabPage3.ResumeLayout(false);
-            this.tabPage3.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -857,7 +892,9 @@
         private System.Windows.Forms.RadioButton modelcButton;
         private System.Windows.Forms.TabPage tabPage3;
         private System.Windows.Forms.Button helpButton;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label warnLabel;
+        private System.Windows.Forms.RichTextBox richTextBox1;
     }
 }
 

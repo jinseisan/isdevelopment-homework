@@ -49,8 +49,6 @@ namespace ISFinalProject
             {
                 try
                 {
-                    
-
                         //1.NLPIR分词处理
                         threadStatusEvent.Invoke("开始分词处理……", new EventArgs());
                         DataProcess.ParagraphProcess(this.process_str);
@@ -73,11 +71,7 @@ namespace ISFinalProject
                         threadEvent.Invoke(250, new EventArgs());//通知主界面我正在执行,数字表示进度条当前进度
                         //6.FS处理完毕，调用模型获得结果
                         threadStatusEvent.Invoke("FS处理完毕，开始调用模型提取关键词……", new EventArgs());
-
-
                         DataProcess.CRFSProcess(this.model);
-
-
                         threadEvent.Invoke(300, new EventArgs());//通知主界面我正在执行,数字表示进度条当前进度
                         //7.模型处理完毕，整合抽取关键词
                         threadStatusEvent.Invoke("模型处理完毕，开始提取关键词……", new EventArgs());
