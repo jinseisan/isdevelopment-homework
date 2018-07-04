@@ -614,7 +614,7 @@ namespace ISFinalProject
          */
         public static void CRFSProcess(string model)
         {
-            if (!File.Exists(@"\Resources\Models\" + model))
+            if (!File.Exists(@"Resources/Models/" + model))
             {
                 throw new Exception("Model文件不存在，请检查是否正确将Model文件放入文件夹！");
             }

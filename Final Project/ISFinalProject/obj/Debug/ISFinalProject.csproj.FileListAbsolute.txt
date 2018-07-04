@@ -18,3 +18,4 @@ F:\jinseisan\isdevelopment-homework\Final Project\ISFinalProject\bin\Debug\关�
 F:\jinseisan\isdevelopment-homework\Final Project\ISFinalProject\bin\Debug\关键词抽取V1.0.pdb
 F:\jinseisan\isdevelopment-homework\Final Project\ISFinalProject\obj\Debug\关键词抽取V1.0.exe
 F:\jinseisan\isdevelopment-homework\Final Project\ISFinalProject\obj\Debug\关键词抽取V1.0.pdb
+F:\jinseisan\isdevelopment-homework\Final Project\ISFinalProject\obj\Debug\ISFinalProject.csprojResolveAssemblyReference.cache
