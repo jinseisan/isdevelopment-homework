@@ -275,7 +275,7 @@ namespace ISFinalProject
                     break;
                 }
             }
-                if (index >= 0)
+            if (index >= 0)
                 {
                     otherinfo += "文件序号：" + savedata.Tables[0].Rows[index]["文件序号"].ToString().Trim() + "\r\n";
                     otherinfo += "中文篇名：" + savedata.Tables[0].Rows[index]["来源篇名"].ToString().Trim() + "\r\n";

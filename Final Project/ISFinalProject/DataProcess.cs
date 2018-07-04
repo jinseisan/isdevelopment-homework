@@ -614,6 +614,10 @@ namespace ISFinalProject
          */
         public static void CRFSProcess(string model)
         {
+            if (!File.Exists(@"\Resources\Models\" + model))
+            {
+                throw new Exception("Model文件不存在，请检查是否正确将Model文件放入文件夹！");
+            }
             //运行路径
             string path = System.Environment.CurrentDirectory ;
             //调用命令，选择导入的model
