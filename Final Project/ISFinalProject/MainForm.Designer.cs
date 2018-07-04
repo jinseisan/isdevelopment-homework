@@ -122,7 +122,7 @@
             // operStatusLabel
             // 
             this.operStatusLabel.Name = "operStatusLabel";
-            this.operStatusLabel.Size = new System.Drawing.Size(222, 17);
+            this.operStatusLabel.Size = new System.Drawing.Size(237, 17);
             this.operStatusLabel.Spring = true;
             this.operStatusLabel.Text = "tabPageStatus";
             // 
@@ -134,7 +134,7 @@
             // timeStatusLable
             // 
             this.timeStatusLable.Name = "timeStatusLable";
-            this.timeStatusLable.Size = new System.Drawing.Size(222, 17);
+            this.timeStatusLable.Size = new System.Drawing.Size(237, 17);
             this.timeStatusLable.Spring = true;
             this.timeStatusLable.Text = "timeStatus";
             // 
@@ -763,9 +763,10 @@
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.statusStrip1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "Main";
-            this.Text = "KeyWordsExtraction";
+            this.Text = "关键词抽取V1.0";
             this.Load += new System.EventHandler(this.Main_Load);
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();

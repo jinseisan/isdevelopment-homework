@@ -16,12 +16,12 @@ namespace ISFinalProject
     class DataProcess
     {
         //文件路径
-        static string NLPIRAdress = @"../../ProcessingFiles/NLPIR.txt";//经过分词后的NLPIR.txt文件路径
-        static string ClassifyAdress = @"../../ProcessingFiles/Classify.txt";//经过词性和构词处理后的Classify.txt文件路径
-        static string LevelAdress = @"../../ProcessingFiles/Level.txt";//经过分类处理的Level.txt文件路径
-        static string FSAdress = @"../../ProcessingFiles/FS.txt";//经过等级处理的FS.txt文件路径
-        static string FeaturesAdress = @"../../ProcessingFiles/Features.txt";//经过fs处理最终包含所有特征的的Featurs.txt文件路径
-        static string ResultAdress = @"../../ProcessingFiles/Results.txt";//经过CRFS处理得到结果的的Results.txt文件路径
+        static string NLPIRAdress = @"ProcessingFiles/NLPIR.txt";//经过分词后的NLPIR.txt文件路径
+        static string ClassifyAdress = @"ProcessingFiles/Classify.txt";//经过词性和构词处理后的Classify.txt文件路径
+        static string LevelAdress = @"ProcessingFiles/Level.txt";//经过分类处理的Level.txt文件路径
+        static string FSAdress = @"ProcessingFiles/FS.txt";//经过等级处理的FS.txt文件路径
+        static string FeaturesAdress = @"ProcessingFiles/Features.txt";//经过fs处理最终包含所有特征的的Featurs.txt文件路径
+        static string ResultAdress = @"ProcessingFiles/Results.txt";//经过CRFS处理得到结果的的Results.txt文件路径
 
         //标点符号
         static string Punctuations = "：:，,？?、.。！!“”…《》‘’—－·";
@@ -264,17 +264,17 @@ namespace ISFinalProject
             "蹭蹬巅簸簿蟹靡癣羹鳖鬓馨蠕巍鳞糯譬霹躏黯髓赣镶瓤矗";
 
         //fs特征词（需要从文本文档中读入）
-        static ArrayList fs_f = getFeaturWords(@"../../Resources/FSWords/f.txt");//f特征词F
-        static ArrayList fs_h = getFeaturWords(@"../../Resources/FSWords/h.txt");//h特征词H
-        static ArrayList fs_s = getFeaturWords(@"../../Resources/FSWords/s.txt");//s特征词S
-        static ArrayList fs_t = getFeaturWords(@"../../Resources/FSWords/t.txt");//t特征词T
-        static ArrayList fs_w = getFeaturWords(@"../../Resources/FSWords/w.txt");//w特征词W；其他0
+        static ArrayList fs_f = getFeaturWords(@"Resources/FSWords/f.txt");//f特征词F
+        static ArrayList fs_h = getFeaturWords(@"Resources/FSWords/h.txt");//h特征词H
+        static ArrayList fs_s = getFeaturWords(@"Resources/FSWords/s.txt");//s特征词S
+        static ArrayList fs_t = getFeaturWords(@"Resources/FSWords/t.txt");//t特征词T
+        static ArrayList fs_w = getFeaturWords(@"Resources/FSWords/w.txt");//w特征词W；其他0
         
 
         //对输入的字符串调用NLPIR分词处理并写入NLPIR.txt
         public static string ParagraphProcess(string paragraph)
         {
-            if (!NLPIRTool.NLPIR_Init(@"../../Resources/ICTCLAS", 0, ""))//给出Data文件所在的路径，注意根据实际情况修改。
+            if (!NLPIRTool.NLPIR_Init(@"Resources/ICTCLAS", 0, ""))//给出Data文件所在的路径，注意根据实际情况修改。
             {
                 throw new Exception("Init ICTCLAS failed!");
             }
@@ -615,7 +615,7 @@ namespace ISFinalProject
         public static void CRFSProcess(string model)
         {
             //运行路径
-            string path = System.Environment.CurrentDirectory + @"\..\..";
+            string path = System.Environment.CurrentDirectory ;
             //调用命令，选择导入的model
             string command = @".\Resources\CRFS\crf_test -m .\Resources\Models\"+ model +@" .\ProcessingFiles\Features.txt > .\ProcessingFiles\Results.txt";
 

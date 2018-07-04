@@ -265,24 +265,33 @@ namespace ISFinalProject
         {
             string otherinfo = "";
             if (this.dataGridView1.SelectedCells.Count > 1) return;
-            int index = this.dataGridView1.CurrentCell.RowIndex;
-            if (index >= 0)
+            int index = 0;
+            string fileNum = this.dataGridView1.CurrentCell.OwningRow.Cells[0].Value.ToString();
+            for (int i = 0; i < pageSize; i++)
             {
-                otherinfo += "文件序号：" + savedata.Tables[0].Rows[index]["文件序号"].ToString().Trim() + "\r\n";
-                otherinfo += "中文篇名：" + savedata.Tables[0].Rows[index]["来源篇名"].ToString().Trim() + "\r\n";
-                otherinfo += "英文篇名：" + savedata.Tables[0].Rows[index]["英文篇名"].ToString().Trim() + "\r\n";
-                otherinfo += "来源作者：" + savedata.Tables[0].Rows[index]["来源作者"].ToString().Trim() + "\r\n";
-                otherinfo += "文章类型：" + savedata.Tables[0].Rows[index]["文章类型"].ToString().Trim() + "\r\n";
-                otherinfo += "期刊：" + savedata.Tables[0].Rows[index]["期刊"].ToString().Trim() + "\n";
-                otherinfo += "第一机构：" + savedata.Tables[0].Rows[index]["第一机构"].ToString().Trim() + "\r\n";
-                otherinfo += "机构名称：" + savedata.Tables[0].Rows[index]["机构名称"].ToString().Trim() + "\r\n";
-                otherinfo += "学科分类：" + savedata.Tables[0].Rows[index]["学科分类"].ToString().Trim() + "\r\n";
-                otherinfo += "第一作者：" + savedata.Tables[0].Rows[index]["第一作者"].ToString().Trim() + "\r\n";
-                otherinfo += "中图类号：" + savedata.Tables[0].Rows[index]["中图类号"].ToString().Trim() + "\r\n";
-                otherinfo += "年代卷期：" + savedata.Tables[0].Rows[index]["年代卷期"].ToString().Trim() + "\r\n";
-                otherinfo += "关键词：" + savedata.Tables[0].Rows[index]["关键词"].ToString().Trim().Replace('/', ';') + "\r\n";
-                this.textBox2.Text = otherinfo;
+                if (fileNum == savedata.Tables[0].Rows[i]["文件序号"])
+                {
+                    index = i;
+                    break;
+                }
             }
+                if (index >= 0)
+                {
+                    otherinfo += "文件序号：" + savedata.Tables[0].Rows[index]["文件序号"].ToString().Trim() + "\r\n";
+                    otherinfo += "中文篇名：" + savedata.Tables[0].Rows[index]["来源篇名"].ToString().Trim() + "\r\n";
+                    otherinfo += "英文篇名：" + savedata.Tables[0].Rows[index]["英文篇名"].ToString().Trim() + "\r\n";
+                    otherinfo += "来源作者：" + savedata.Tables[0].Rows[index]["来源作者"].ToString().Trim() + "\r\n";
+                    otherinfo += "文章类型：" + savedata.Tables[0].Rows[index]["文章类型"].ToString().Trim() + "\r\n";
+                    otherinfo += "期刊：" + savedata.Tables[0].Rows[index]["期刊"].ToString().Trim() + "\n";
+                    otherinfo += "第一机构：" + savedata.Tables[0].Rows[index]["第一机构"].ToString().Trim() + "\r\n";
+                    otherinfo += "机构名称：" + savedata.Tables[0].Rows[index]["机构名称"].ToString().Trim() + "\r\n";
+                    otherinfo += "学科分类：" + savedata.Tables[0].Rows[index]["学科分类"].ToString().Trim() + "\r\n";
+                    otherinfo += "第一作者：" + savedata.Tables[0].Rows[index]["第一作者"].ToString().Trim() + "\r\n";
+                    otherinfo += "中图类号：" + savedata.Tables[0].Rows[index]["中图类号"].ToString().Trim() + "\r\n";
+                    otherinfo += "年代卷期：" + savedata.Tables[0].Rows[index]["年代卷期"].ToString().Trim() + "\r\n";
+                    otherinfo += "关键词：" + savedata.Tables[0].Rows[index]["关键词"].ToString().Trim().Replace('/', ';') + "\r\n";
+                    this.textBox2.Text = otherinfo;
+                }
         }
         private void dataGridView1_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {

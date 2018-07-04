@@ -58,7 +58,7 @@ namespace ISFinalProject
 
     class NLPIRTool
     {
-        const string path = @"../../Resources/ICTCLAS/NLPIR.dll";//设定dll的路径
+        const string path = @"Resources/ICTCLAS/NLPIR.dll";//设定dll的路径
         //对函数进行申明
         [DllImport(path, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Winapi, EntryPoint = "NLPIR_Init")]
         public static extern bool NLPIR_Init(String sInitDirPath, int encoding, String sLicenseCode);

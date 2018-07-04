@@ -115,7 +115,7 @@
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dataGridView1.RowTemplate.Height = 23;
-            this.dataGridView1.Size = new System.Drawing.Size(650, 255);
+            this.dataGridView1.Size = new System.Drawing.Size(650, 252);
             this.dataGridView1.TabIndex = 3;
             this.dataGridView1.RowStateChanged += new System.Windows.Forms.DataGridViewRowStateChangedEventHandler(this.dataGridView1_RowStateChanged);
             // 
@@ -175,7 +175,7 @@
             // pagePanel
             // 
             this.pagePanel.Controls.Add(this.bindingNavigator1);
-            this.pagePanel.Location = new System.Drawing.Point(22, 363);
+            this.pagePanel.Location = new System.Drawing.Point(22, 360);
             this.pagePanel.Name = "pagePanel";
             this.pagePanel.Size = new System.Drawing.Size(650, 32);
             this.pagePanel.TabIndex = 9;
@@ -412,7 +412,7 @@
             // operStatusLabel
             // 
             this.operStatusLabel.Name = "operStatusLabel";
-            this.operStatusLabel.Size = new System.Drawing.Size(344, 17);
+            this.operStatusLabel.Size = new System.Drawing.Size(375, 17);
             this.operStatusLabel.Spring = true;
             this.operStatusLabel.Text = "参考文献信息";
             // 
@@ -438,6 +438,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.fileNumBox);
             this.Controls.Add(this.label1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "ReferenceForm";
             this.Text = "引文文献信息";
