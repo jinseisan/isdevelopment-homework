@@ -1,92 +1,104 @@
-马	X	N	T	X
-克	X	N	Z	X
-思	X	N	W	V
-恩	X	N	T	Z
-格	X	N	Z	Z
-斯	X	N	W	U
-全	X	N	T	V
-集	X	N	W	V
-(	Z	W	E	V
-第	X	M	D	Z
-2	Z	M	E	V
-版	X	N	D	Z
-)	Z	W	E	V
-(	Z	W	E	V
-第	X	M	D	Z
-44	Z	M	E	V
-卷	X	Q	D	Z
-)	Z	W	E	V
+Power	Z	N	E	V
 
-马	X	N	T	X
-克	X	N	Z	X
-思	X	N	W	V
-恩	X	N	T	Z
-格	X	N	Z	Z
-斯	X	N	W	U
-全	X	N	T	V
-集	X	N	W	V
-(	Z	W	E	V
-第	X	M	D	Z
-2	Z	M	E	V
-版	X	N	D	Z
-)	Z	W	E	V
-(	Z	W	E	V
-第	X	M	D	Z
-31	Z	M	E	V
-卷	X	Q	D	Z
-)	Z	W	E	V
+Dynamics	Z	N	E	V
 
-意	X	L	T	U
-识	X	L	Z	Z
-形	X	L	Z	V
-态	X	L	W	U
+in	Z	P	E	V
+
+an	Z	R	E	V
+
+Experimental	Z	N	E	V
+
+Game	Z	N	E	V
+
+规	X	G	D	U
+训	X	V	D	Z
+与	X	C	D	U
+惩	X	V	T	Z
+罚	X	V	W	U
+—	Z	W	E	V
+监	X	N	T	U
+狱	X	N	W	V
 的	X	U	D	Z
-崇	X	A	T	Z
-高	X	A	W	Y
-客	X	N	T	Z
-体	X	N	W	V
+诞	X	V	T	Z
+生	X	V	W	U
 
-马	X	N	T	X
-克	X	N	Z	X
-思	X	N	W	V
-恩	X	N	T	Z
-格	X	N	Z	Z
-斯	X	N	W	U
-全	X	N	T	V
-集	X	N	W	V
+Power	Z	N	E	V
+:	Z	W	E	V
+
+A	Z	R	E	V
+
+new	Z	A	E	V
+
+Social	Z	A	E	V
+
+Analysis	Z	N	E	V
+
+
+权	X	N	T	Z
+力	X	N	W	Y
+
+社	X	N	T	U
+会	X	N	W	U
+生	X	V	T	U
+活	X	V	W	Z
+中	X	F	D	X
+交	X	V	T	Y
+往	X	V	W	U
+和	X	C	D	V
+权	X	N	T	Z
+力	X	N	W	Y
+
+Place	Z	N	E	V
+
+of	Z	P	E	V
+
+Force	Z	N	E	V
+
+in	Z	P	E	V
+
+Human	Z	A	E	V
+
+Society	Z	N	E	V
+
+Base	Z	N	E	V
+
+of	Z	P	E	V
+
+Gendered	Z	N	E	V
+
+Power:Psychology	Z	X	E	V
+
+of	Z	P	E	V
+
+Gender	Z	N	E	V
+
 (	Z	W	E	V
-第	X	M	D	Z
-2	Z	M	E	V
-版	X	N	D	Z
-)	Z	W	E	V
-(	Z	W	E	V
-第	X	M	D	Z
-30	Z	M	E	V
-卷	X	Q	D	Z
+2nd	Z	N	E	V
+
+ed	Z	N	E	V
 )	Z	W	E	V
 :	Z	W	E	V
-22	Z	M	E	V
+Guilford	Z	N	E	V
 
-马	X	N	T	X
-克	X	N	Z	X
-思	X	N	W	V
-恩	X	N	T	Z
-格	X	N	Z	Z
-斯	X	N	W	U
-全	X	N	T	V
-集	X	N	W	V
-(	Z	W	E	V
-第	X	M	D	Z
-1	Z	M	E	V
-版	X	N	D	Z
-)	Z	W	E	V
-(	Z	W	E	V
-第	X	M	D	Z
-4	Z	M	E	V
-卷	X	Q	D	Z
-)	Z	W	E	V
-:	Z	W	E	V
-153	Z	M	E	V
--	Z	M	B	V
-154	Z	M	E	V
+Publications:242	Z	X	E	V
+-	Z	X	B	V
+268	Z	X	E	V
+
+现	X	T	T	Z
+代	X	T	W	Z
+政	X	N	T	V
+治	X	N	W	Z
+分	X	V	T	U
+析	X	V	W	U
+原	X	N	T	U
+理	X	N	W	Z
+
+权	X	N	T	Z
+力	X	N	W	Y
+诸	X	R	D	Z
+种	X	Q	D	Z
+概	X	N	T	Z
+念	X	N	W	Z
+述	X	N	T	Z
+评	X	N	W	Z
 

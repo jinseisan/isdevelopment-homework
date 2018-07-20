@@ -1,92 +1,104 @@
-马	N	T
-克	N	Z
-思	N	W
-恩	N	T
-格	N	Z
-斯	N	W
-全	N	T
-集	N	W
-(	W	E
-第	M	D
-2	M	E
-版	N	D
-)	W	E
-(	W	E
-第	M	D
-44	M	E
-卷	Q	D
-)	W	E
+Power	N	E
 
-马	N	T
-克	N	Z
-思	N	W
-恩	N	T
-格	N	Z
-斯	N	W
-全	N	T
-集	N	W
-(	W	E
-第	M	D
-2	M	E
-版	N	D
-)	W	E
-(	W	E
-第	M	D
-31	M	E
-卷	Q	D
-)	W	E
+Dynamics	N	E
 
-意	L	T
-识	L	Z
-形	L	Z
-态	L	W
+in	P	E
+
+an	R	E
+
+Experimental	N	E
+
+Game	N	E
+
+规	G	D
+训	V	D
+与	C	D
+惩	V	T
+罚	V	W
+—	W	E
+监	N	T
+狱	N	W
 的	U	D
-崇	A	T
-高	A	W
-客	N	T
-体	N	W
+诞	V	T
+生	V	W
 
-马	N	T
-克	N	Z
-思	N	W
-恩	N	T
-格	N	Z
-斯	N	W
-全	N	T
-集	N	W
+Power	N	E
+:	W	E
+
+A	R	E
+
+new	A	E
+
+Social	A	E
+
+Analysis	N	E
+
+
+权	N	T
+力	N	W
+
+社	N	T
+会	N	W
+生	V	T
+活	V	W
+中	F	D
+交	V	T
+往	V	W
+和	C	D
+权	N	T
+力	N	W
+
+Place	N	E
+
+of	P	E
+
+Force	N	E
+
+in	P	E
+
+Human	A	E
+
+Society	N	E
+
+Base	N	E
+
+of	P	E
+
+Gendered	N	E
+
+Power:Psychology	X	E
+
+of	P	E
+
+Gender	N	E
+
 (	W	E
-第	M	D
-2	M	E
-版	N	D
-)	W	E
-(	W	E
-第	M	D
-30	M	E
-卷	Q	D
+2nd	N	E
+
+ed	N	E
 )	W	E
 :	W	E
-22	M	E
+Guilford	N	E
 
-马	N	T
-克	N	Z
-思	N	W
-恩	N	T
-格	N	Z
-斯	N	W
-全	N	T
-集	N	W
-(	W	E
-第	M	D
-1	M	E
-版	N	D
-)	W	E
-(	W	E
-第	M	D
-4	M	E
-卷	Q	D
-)	W	E
-:	W	E
-153	M	E
--	M	B
-154	M	E
+Publications:242	X	E
+-	X	B
+268	X	E
+
+现	T	T
+代	T	W
+政	N	T
+治	N	W
+分	V	T
+析	V	W
+原	N	T
+理	N	W
+
+权	N	T
+力	N	W
+诸	R	D
+种	Q	D
+概	N	T
+念	N	W
+述	N	T
+评	N	W
 

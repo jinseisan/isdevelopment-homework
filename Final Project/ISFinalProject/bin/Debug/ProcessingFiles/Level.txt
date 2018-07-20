@@ -1,92 +1,104 @@
-马	N	T	X
-克	N	Z	X
-思	N	W	V
-恩	N	T	Z
-格	N	Z	Z
-斯	N	W	U
-全	N	T	V
-集	N	W	V
-(	W	E	V
-第	M	D	Z
-2	M	E	V
-版	N	D	Z
-)	W	E	V
-(	W	E	V
-第	M	D	Z
-44	M	E	V
-卷	Q	D	Z
-)	W	E	V
+Power	N	E	V
 
-马	N	T	X
-克	N	Z	X
-思	N	W	V
-恩	N	T	Z
-格	N	Z	Z
-斯	N	W	U
-全	N	T	V
-集	N	W	V
-(	W	E	V
-第	M	D	Z
-2	M	E	V
-版	N	D	Z
-)	W	E	V
-(	W	E	V
-第	M	D	Z
-31	M	E	V
-卷	Q	D	Z
-)	W	E	V
+Dynamics	N	E	V
 
-意	L	T	U
-识	L	Z	Z
-形	L	Z	V
-态	L	W	U
+in	P	E	V
+
+an	R	E	V
+
+Experimental	N	E	V
+
+Game	N	E	V
+
+规	G	D	U
+训	V	D	Z
+与	C	D	U
+惩	V	T	Z
+罚	V	W	U
+—	W	E	V
+监	N	T	U
+狱	N	W	V
 的	U	D	Z
-崇	A	T	Z
-高	A	W	Y
-客	N	T	Z
-体	N	W	V
+诞	V	T	Z
+生	V	W	U
 
-马	N	T	X
-克	N	Z	X
-思	N	W	V
-恩	N	T	Z
-格	N	Z	Z
-斯	N	W	U
-全	N	T	V
-集	N	W	V
+Power	N	E	V
+:	W	E	V
+
+A	R	E	V
+
+new	A	E	V
+
+Social	A	E	V
+
+Analysis	N	E	V
+
+
+权	N	T	Z
+力	N	W	Y
+
+社	N	T	U
+会	N	W	U
+生	V	T	U
+活	V	W	Z
+中	F	D	X
+交	V	T	Y
+往	V	W	U
+和	C	D	V
+权	N	T	Z
+力	N	W	Y
+
+Place	N	E	V
+
+of	P	E	V
+
+Force	N	E	V
+
+in	P	E	V
+
+Human	A	E	V
+
+Society	N	E	V
+
+Base	N	E	V
+
+of	P	E	V
+
+Gendered	N	E	V
+
+Power:Psychology	X	E	V
+
+of	P	E	V
+
+Gender	N	E	V
+
 (	W	E	V
-第	M	D	Z
-2	M	E	V
-版	N	D	Z
-)	W	E	V
-(	W	E	V
-第	M	D	Z
-30	M	E	V
-卷	Q	D	Z
+2nd	N	E	V
+
+ed	N	E	V
 )	W	E	V
 :	W	E	V
-22	M	E	V
+Guilford	N	E	V
 
-马	N	T	X
-克	N	Z	X
-思	N	W	V
-恩	N	T	Z
-格	N	Z	Z
-斯	N	W	U
-全	N	T	V
-集	N	W	V
-(	W	E	V
-第	M	D	Z
-1	M	E	V
-版	N	D	Z
-)	W	E	V
-(	W	E	V
-第	M	D	Z
-4	M	E	V
-卷	Q	D	Z
-)	W	E	V
-:	W	E	V
-153	M	E	V
--	M	B	V
-154	M	E	V
+Publications:242	X	E	V
+-	X	B	V
+268	X	E	V
+
+现	T	T	Z
+代	T	W	Z
+政	N	T	V
+治	N	W	Z
+分	V	T	U
+析	V	W	U
+原	N	T	U
+理	N	W	Z
+
+权	N	T	Z
+力	N	W	Y
+诸	R	D	Z
+种	Q	D	Z
+概	N	T	Z
+念	N	W	Z
+述	N	T	Z
+评	N	W	Z
 
